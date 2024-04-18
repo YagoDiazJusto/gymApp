@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('index') }}
+{% endblock %}
+{% block title %}
+	Grupos Musculares
+{% endblock %}
+
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<div>
+				<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+				<a href="{{ path('visualizarRutinas',{userName:userName}) }}">Visualizar Rutinas</a>
+				<a href="{{ path('logout') }}">Cerrar sesión</a>
+				<a
+				<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
+				<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+
+			</div>
+		</div>
+	</nav>
+
+	<h1>Grupos Musculares</h1>
+	<div class="musculos">
+		{% for grupo in grupos %}
+			<a href="{{ path('seleccionarEjercicio',{nombre:grupo.nombre,userName:userName}) }}"><img src="/img/{{grupo.imagen}}"></a>
+		{% endfor %}
+	</div>
+
+{% endblock %}

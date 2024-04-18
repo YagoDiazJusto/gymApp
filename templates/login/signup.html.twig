@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+{% block title %}
+	Add user
+{% endblock %}
+{% block body %}
+	<div class="container">
+		{{form_start(form)}}
+		<div>
+			{{ form_label(form.email, 'Enter the email',{'label_attr':{'style': 'color: black ;font-style:italic'}})
+			}}
+
+			{{ form_widget(form.email, {'attr': {'style': 'color: blue'}})}}
+		</div>
+		<div>
+			{{ form_label(form.roles, 'Enter a roles',{'label_attr':{'style': 'color: black ;font-style:italic'}}) }}
+
+
+			{{ form_widget(form.roles, {'attr': {'style': 'color: blue'}})}}
+		</div>
+		<div>
+			{{ form_label(form.password, 'Enter the password',{'label_attr':{'style': 'color: black ;font-style:italic'}})
+			}}
+
+			{{ form_widget(form.password, {'attr': {'style': 'color: blue'}})}}
+		</div>
+		{{form_end(form)}}
+	</div>
+
+{% endblock %}

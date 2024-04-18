@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('addEjercicio') }}
+{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block title %}
+	AddEjRutina
+{% endblock %}
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+			<a href="{{ path('logout') }}" class="btn btn-dark">Cerrar sesión</a>
+			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
+			<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+		</div>
+	</nav>
+	{{ejercicio.maquina.imagen}}
+	{{ejercicio.nombreEjercicio}}
+	<div class="container">
+		{{form_start(form)}}
+		<div>
+			{{ form_label(form.peso, 'Introduce el peso',{'label_attr':{'style': 'color: black ;font-style:italic'}})
+									}}
+
+			{{ form_widget(form.peso)}}
+		</div>
+		<div>
+			{{ form_label(form.series, 'Introduce número de series',{'label_attr':{'style': 'color: black ;font-style:italic'}}) }}
+
+
+			{{ form_widget(form.series)}}
+		</div>
+		<div>
+			{{ form_label(form.repSerie, 'Introduzca número de repeticiones por serie',{'label_attr':{'style': 'color: black ;font-style:italic'}})
+									}}
+
+			{{ form_widget(form.repSerie)}}
+		</div>
+		{{form_end(form)}}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('ejercicios') }}
+{% endblock %}
+{% block title %}
+	Ejercicios
+{% endblock %}
+
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+			<a href="{{ path('logout') }}" class="btn btn-dark">Cerrar sesión</a>
+			<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+		</div>
+	</nav>
+	<input
+	type="text" placeholder="Buscar ejercicio" class="buscar">
+	<!--No tocar js-->
+	<div class="ejercicios">
+		{% for ejercicio in ejercicios %}
+			<div class="ejercicio">
+				<a href="{{ path('addEjercicioRutina',{nombre:ejercicio.nombreEjercicio,userName:userName}) }}">{{ejercicio.nombreEjercicio}}</a>
+				<span>{{ejercicio.descripcion}}</span>
+				<span><img src="/img/{{ejercicio.maquina.imagen}}" alt="img"></span>
+			</div>
+			<span>-----------------------</span>
+		{% endfor %}
+	</div>
+
+{% endblock %}

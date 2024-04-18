@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('rutinaActual') }}
+{% endblock %}
+{% block title %}
+	Rutina Actual
+{% endblock %}
+
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<div>
+				<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+				<a href="{{ path('logout') }}">Cerrar sesión</a>
+				<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
+
+				<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+			</div>
+		</div>
+	</nav>
+	<h1>Rutina Actual:
+		{{ fecha|date("d/m/Y") }}</h1>
+	{% for ej in ejercicios %}
+		<div>
+			<p>{{ej.ejercicio.nombreEjercicio}}</p>
+			<p>{{ej.peso}}</p>
+			<p>{{ej.series}}</p>
+			<p>{{ej.repeticionesPorSerie}}</p>
+		</div>
+	{% endfor %}
+	<button class="finalizarRutina">Finalizar Rutina</button>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('rutinaActual') }}
+{% endblock %}
+{% block title %}
+	Visualizar Rutinas
+{% endblock %}
+
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<div>
+				<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+				<a href="{{ path('logout') }}">Cerrar sesión</a>
+				<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
+
+				<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+					<option value="{{ path('visualizarRutinas',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+			</div>
+		</div>
+	</nav>
+		<h1>Rutinas:</h1>
+		{% set num = 0 %}
+
+		{% for d in detallesRutina %}
+			<h1>{{rutinas[num].fechaCreacion|date("d/m/Y")}}</h1>
+			{% for d2 in d %}
+				<p><b>{{d2.ejercicio.nombreEjercicio}}</b></p>
+				<p>{{d2.ejercicio.descripcion}}</p>
+				<p>{{d2.ejercicio.maquina.nombre}}</p>
+				<p>{{d2.ejercicio.grupoMuscular.nombre}}</p>
+				<p>{{d2.peso}}</p>
+				<p>{{d2.series}}</p>
+				<p>{{d2.repeticionesPorSerie}}</p>
+			{% endfor %}
+			{% set num = num+1 %}
+		{% endfor %}
+{% endblock %}

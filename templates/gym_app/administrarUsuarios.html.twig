@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Administrar usuarios
+{% endblock %}
+{% block body %}
+	<nav>
+		<div>
+			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
+			<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
+			<a href="{{ path('logout') }}" class="btn btn-dark">Cerrar sesión</a>
+			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
+			<select onchange="window.location.href=this.value;" hidden class="opciones">
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
+				</select>
+		</div>
+	</nav>
+	{% for msg in app.flashes('incorrect') %}
+		<div class="error">
+			<span>{{msg}}</span>
+		</div>
+	{% endfor %}
+	{% for msg in app.flashes('correct') %}
+		<div class="correct">
+			<span>{{msg}}</span>
+		</div>
+	{% endfor %}
+
+	<div class="container">
+		<div class="formulario">
+			<div>
+				{{form_start(form1)}}
+				<div>
+					{{ form_label(form1.email, 'Introduce el email del usuario a borrar') }}
+
+					{{ form_widget(form1.email)}}
+
+				</div>
+				{{form_end(form1)}}
+			</div>
+		
+			<div>
+				{{form_start(form2)}}
+				<div>
+					{{ form_label(form2.email, 'Introduce el email del usuario a añadir') }}
+
+					{{ form_widget(form2.email)}}
+
+					{{ form_label(form2.roles, 'Introduce el rol') }}
+
+					{{ form_widget(form2.roles)}}
+
+					{{ form_label(form2.password, 'Introduce la nueva contraseña') }}
+
+					{{ form_widget(form2.password)}}
+
+				</div>
+				{{form_end(form2)}}
+			</div>
+		</div>
+
+	{% endblock %}
