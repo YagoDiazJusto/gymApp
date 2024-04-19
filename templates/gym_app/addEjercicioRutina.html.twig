@@ -7,19 +7,20 @@
 	AddEjRutina
 {% endblock %}
 {% block body %}
-	<nav>
-		<div>
-			<a href="{{ path('app_gym',{userName:userName}) }}">Home</a>
-			<a href="{{ path('mostrarRutinaActual',{userName:userName}) }}">Rutina actual</a>
-			<a href="{{ path('logout') }}" class="btn btn-dark">Cerrar sesión</a>
-			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}">⚙️</button>
-			<select onchange="window.location.href=this.value;" hidden class="opciones">
-					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
-					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
-					<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
-					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
-					<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
-				</select>
+	<nav class="nav">
+		<a class="nav-link active" aria-current="page" href="{{ path('app_gym',{userName:userName}) }}" style="color:yellow">Home</a>
+		<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:yellow">Rutina actual</a>
+		<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:yellow">Visualizar Rutinas</a>
+		<a class="nav-link" href="{{ path('logout') }}" style="color:yellow">Cerrar sesión</a>
+		<div class=" pt-2">
+			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
+			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Añadir nuevo administrador</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Borrar usuarios</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Actualizar usuarios</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nuevo ejercicio</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nueva máquina</option>
+			</select>
 		</div>
 	</nav>
 	{{ejercicio.maquina.imagen}}

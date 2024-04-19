@@ -1,3 +1,4 @@
+import './styles/index.css';
 //Botón configuración
 let configuracion = document.querySelector(".config");
 let isAdmin = configuracion.getAttribute("id");
