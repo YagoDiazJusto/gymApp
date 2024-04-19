@@ -15,7 +15,7 @@ class GrupoMuscularService
             ["nombre" => "bíceps", "descripcion" => "El bíceps  se ubica superficial a los músculos braquial y coracobraquial, y básicamente forma el lado anterior del brazo.", "imagen" => "biceps.png"],
             ["nombre" => "tríceps", "descripcion" => "El tríceps es un músculo grande que ocupa aproximadamente dos tercios de la parte superior del brazo, extendiéndose por la parte posterior del húmero, el hueso del brazo.", "imagen" => "triceps.png"],
             ["nombre" => "abdominal", "descripcion" => " El abdominal encuentra situada entre el tórax, hacia arriba, y la pelvis, hacia abajo.", "imagen" => "abdominal.png"],
-            ["nombre" => "cardio", "descripcion" => "Se trabajan todos los músculos del cuerpo.", "imagen" => " cardio.png"],
+            ["nombre" => "cardio", "descripcion" => "Se trabajan todos los músculos del cuerpo.", "imagen" => "cardio.png"],
         ];
     }
 

@@ -1,7 +1,7 @@
 @import 'bootstrap';
 
 .registroContenedor{
-    background-color: rgba(44, 52, 54, 0.7);
+    background-color: rgba(44, 52, 54);
     margin-top: 8%;
     width: 450px;
     height: 400px;
@@ -33,4 +33,7 @@
     position: relative;
     bottom:25px;
     margin: 0px;
+}
+body{
+    background-color: #272320;
 }

@@ -6,7 +6,7 @@
 	Add user
 {% endblock %}
 {% block body %}
-<body style="background-image: url('{{ asset('./img/login.avif') }}'); background-repeat: no-repeat; background-size: cover;">
+<body style="background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('{{ asset('./img/bgLogin.jpg') }}'); background-repeat: no-repeat; background-size: cover;background-attachment:fixed; opacity:0.9;height:100%">
 	<div class="container registroContenedor">
 		{{form_start(form, {'attr': {'class': 'row justify-content-center'}})}}
 		<img class="logo text-center" src="./img/logo2.png"></img>
