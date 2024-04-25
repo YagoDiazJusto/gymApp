@@ -93,7 +93,13 @@ class GymAppController extends AbstractController
             ->add('peso', IntegerType::class)
             ->add('series', IntegerType::class)
             ->add('repSerie', IntegerType::class)
-            ->add('findBtn', SubmitType::class, ['label' => 'Confirmar', "attr" => ["class" => "btn"]])
+            ->add('findBtn', SubmitType::class, [
+                'label' => 'Confirmar',
+                'attr' => [
+                    'class' => 'btn',
+                    'style' => 'background-color: yellow;'
+                ]
+            ])
             ->getForm();
 
         $form->handleRequest($request);

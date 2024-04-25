@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
-	{{ encore_entry_script_tags('rutinaActual') }}
+	{{ encore_entry_script_tags('visualizarRutinas') }}
+{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('visualizarRutinas') }}
 {% endblock %}
 {% block title %}
 	Visualizar Rutinas

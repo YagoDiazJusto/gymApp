@@ -1,4 +1,6 @@
-//Inpur filtrado
+import './styles/ejercicios.css';
+
+//Input filtrado
 let inputBuscar = document.querySelector(".buscar");
 let ejercicios = document.querySelector(".ejercicios");
 
@@ -28,10 +30,8 @@ configuracion.addEventListener("click", (e) => {
             oculto = true;
             opciones.setAttribute("hidden", false);
         }
-
     }
 });
-
 //Ocultar boton de configuración
 if (isAdmin == "admin") {
     opciones.removeAttribute("hidden");

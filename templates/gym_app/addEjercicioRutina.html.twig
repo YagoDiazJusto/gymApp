@@ -2,7 +2,9 @@
 {% block javascripts %}
 	{{ encore_entry_script_tags('addEjercicio') }}
 {% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('addEjercicio') }}
+{% endblock %}
 {% block title %}
 	AddEjRutina
 {% endblock %}
@@ -15,37 +17,37 @@
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
 			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Añadir nuevo administrador</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Borrar usuarios</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Actualizar usuarios</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nuevo ejercicio</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nueva máquina</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
 			</select>
 		</div>
 	</nav>
-	{{ejercicio.maquina.imagen}}
-	{{ejercicio.nombreEjercicio}}
-	<div class="container">
-		{{form_start(form)}}
-		<div>
-			{{ form_label(form.peso, 'Introduce el peso',{'label_attr':{'style': 'color: black ;font-style:italic'}})
-									}}
 
-			{{ form_widget(form.peso)}}
+	<div class="mt-5 ms-5" style="margin-top:8%">
+		<section class="row">
+			<div class="col-6 text-end">
+				<img src="/img/{{ejercicio.maquina.imagen}}" class="col-8">
+			</div>
+			<div class="col-6">
+				<h5 style="color:yellow;margin-top:10px">{{ejercicio.nombreEjercicio}}</h1>
+				<div class="container">
+					{{ form_start(form) }}
+					<div>
+						{{ form_widget(form.peso, {'attr': {'placeholder': 'Peso(kg)'}}) }}
+					</div>
+					<div>
+						{{ form_widget(form.series, {'attr': {'placeholder': 'Series'}}) }}
+					</div>
+					<div>
+						{{ form_widget(form.repSerie, {'attr': {'placeholder': 'Repeticiones por serie'}}) }}
+					</div>
+					{{ form_end(form) }}
+				</div>
+			</section>
 		</div>
-		<div>
-			{{ form_label(form.series, 'Introduce número de series',{'label_attr':{'style': 'color: black ;font-style:italic'}}) }}
 
 
-			{{ form_widget(form.series)}}
-		</div>
-		<div>
-			{{ form_label(form.repSerie, 'Introduzca número de repeticiones por serie',{'label_attr':{'style': 'color: black ;font-style:italic'}})
-									}}
-
-			{{ form_widget(form.repSerie)}}
-		</div>
-		{{form_end(form)}}
-	</div>
-
-{% endblock %}
+	{% endblock %}

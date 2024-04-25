@@ -2,6 +2,9 @@
 {% block title %}
 	Administrar usuarios
 {% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('usuarios') }}
+{% endblock %}
 {% block body %}
 	<nav class="nav">
 		<a class="nav-link active" aria-current="page" href="{{ path('app_gym',{userName:userName}) }}" style="color:yellow">Home</a>

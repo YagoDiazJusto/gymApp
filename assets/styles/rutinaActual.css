@@ -1,0 +1,9 @@
+@import 'bootstrap';
+body{
+    background-color: black;
+}
+h1{
+    color:yellow;
+    text-align:center;
+    margin-top:25px;
+}

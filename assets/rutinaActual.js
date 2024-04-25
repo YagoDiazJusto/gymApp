@@ -1,3 +1,4 @@
+import './styles/rutinaActual.css';
 //Puenteado de las sesiones de symfony con js
 let btnfinalizarRutina = document.querySelector(".finalizarRutina");
 console.log(btnfinalizarRutina);

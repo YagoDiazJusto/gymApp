@@ -20,6 +20,18 @@ class UserController extends AbstractController
         $form = $this->createFormBuilder($user)
             ->add('email')
             ->add('password', PasswordType::class)
+            ->add(
+                'roles',
+                ChoiceType::class,
+                array(
+                    'choices' => [
+                        '0' => ["Role user" => "ROLE_USER"],
+                        '1' => ["Role admin" => "ROLE_ADMIN"],
+                    ],
+                    'expanded' => true,
+                    'multiple' => true,
+                )
+            )
             ->add('submit', SubmitType::class, [
                 'label' => 'Registrate',
                 'attr' => [
@@ -37,7 +49,8 @@ class UserController extends AbstractController
 
             // Asignar el rol
             $userRoles = $user->getRoles();
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles($userRoles);
+            //$user->setRoles(['ROLE_USER']);
 
             $userRepository->add($user);
 

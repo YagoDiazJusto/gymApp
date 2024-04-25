@@ -26,7 +26,10 @@ Encore
     .addEntry('ejercicios', './assets/ejercicios.js')
     .addEntry('rutinaActual', './assets/rutinaActual.js')
     .addEntry('index', './assets/index.js')
+    .addEntry('usuarios', './assets/usuarios.js')
+    .addEntry('material', './assets/material.js')
     .addEntry('addEjercicio', './assets/addEjercicio.js')
+    .addEntry('visualizarRutinas', './assets/visualizarRutinas.js')
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 

@@ -2,6 +2,9 @@
 {% block javascripts %}
 	{{ encore_entry_script_tags('rutinaActual') }}
 {% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('rutinaActual') }}
+{% endblock %}
 {% block title %}
 	Rutina Actual
 {% endblock %}
@@ -15,23 +18,36 @@
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
 			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Añadir nuevo administrador</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Borrar usuarios</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Actualizar usuarios</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nuevo ejercicio</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nueva máquina</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
 			</select>
 		</div>
 	</nav>
-	<h1>Rutina Actual:
-		{{ fecha|date("d/m/Y") }}</h1>
-	{% for ej in ejercicios %}
-		<div>
-			<p>{{ej.ejercicio.nombreEjercicio}}</p>
-			<p>{{ej.peso}}</p>
-			<p>{{ej.series}}</p>
-			<p>{{ej.repeticionesPorSerie}}</p>
+	<h1>Rutina Actual:{{ fecha|date("d/m/Y") }}</h1>
+	<div class="container">
+		<div class="row">
+			{% for ej in ejercicios %}
+				<div class="col-md-5 col-12" style="margin-bottom:20px;border:solid 2px #00008B;border-radius: 5px;padding:15px;margin:10px">
+					<div class="row">
+						<div class="col-6">
+							<p style="color:yellow">{{ej.ejercicio.nombreEjercicio}}</p>
+							<p style="color:yellow">Peso:
+								{{ej.peso}}</p>
+							<p style="color:yellow">Series:
+								{{ej.series}}</p>
+							<p style="color:yellow">Respeticiones por serie:
+								{{ej.repeticionesPorSerie}}</p>
+						</div>
+						<div class="col-6">
+							<img src="/img/{{ ej.ejercicio.maquina.imagen }}" class="col-12">
+						</div>
+					</div>
+				</div>
+			{% endfor %}
 		</div>
-	{% endfor %}
-	<button class="finalizarRutina">Finalizar Rutina</button>
+		<p class="text-center"><button class="finalizarRutina" style="background-color:yellow;padding:5px;margin-top:5px;font-weigth:bold;border-radius:7px">Finalizar Rutina</button></p>
+	</div>
 {% endblock %}
