@@ -28,26 +28,25 @@
 	</nav>
 	<h1>Rutina Actual:{{ fecha|date("d/m/Y") }}</h1>
 	<div class="container">
-		<div class="row">
-			{% for ej in ejercicios %}
-				<div class="col-md-5 col-12" style="margin-bottom:20px;border:solid 2px #00008B;border-radius: 5px;padding:15px;margin:10px">
-					<div class="row">
-						<div class="col-6">
-							<p style="color:yellow">{{ej.ejercicio.nombreEjercicio}}</p>
-							<p style="color:yellow">Peso:
-								{{ej.peso}}</p>
-							<p style="color:yellow">Series:
-								{{ej.series}}</p>
-							<p style="color:yellow">Respeticiones por serie:
-								{{ej.repeticionesPorSerie}}</p>
-						</div>
-						<div class="col-6">
-							<img src="/img/{{ ej.ejercicio.maquina.imagen }}" class="col-12">
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-		<p class="text-center"><button class="finalizarRutina" style="background-color:yellow;padding:5px;margin-top:5px;font-weigth:bold;border-radius:7px">Finalizar Rutina</button></p>
-	</div>
+    <div class="row">
+        {% for ej in ejercicios %}
+            <div class="col-md-5 col-12 card">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>{{ ej.ejercicio.nombreEjercicio }}</h3>
+                        <p><span style="font-weight:bold">Peso: </span>{{ ej.peso }}</p>
+                        <p><span style="font-weight:bold">Series: </span>{{ ej.series }}</p>
+                        <p><span style="font-weight:bold">Repeticiones por serie: </span> {{ ej.repeticionesPorSerie }}</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="/img/{{ ej.ejercicio.maquina.imagen }}" class="col-12">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <p class="text-center">
+        <button class="finalizarRutina">Finalizar Rutina</button>
+    </p>
+</div>
 {% endblock %}

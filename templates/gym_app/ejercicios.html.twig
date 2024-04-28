@@ -35,8 +35,8 @@
 		<div class="ejercicios row">
 			{% for ejercicio in ejercicios %}
 				<div class="ejercicio col-md-6 col-12">
-					<a href="{{ path('addEjercicioRutina',{nombre:ejercicio.nombreEjercicio,userName:userName}) }}">{{ejercicio.nombreEjercicio}}</a>
-					<span>{{ejercicio.descripcion}}</span>
+					<a href="{{ path('addEjercicioRutina',{nombre:ejercicio.nombreEjercicio,userName:userName}) }}">{{ejercicio.nombreEjercicio}}:</a>
+					<span style="color:white">{{ejercicio.descripcion}}</span>
 					<span><img src="/img/{{ejercicio.maquina.imagen}}" class="col-12" alt="img"></span>
 				</div>
 			{% endfor %}
