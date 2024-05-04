@@ -2,3 +2,81 @@
 body{
     background-color: black;
 }
+
+.opciones {
+    /* Estilos para el borde */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Estilos para el fondo y texto */
+    background-color:  rgb(255, 255, 255);
+    color: rgba(44, 52, 54);
+    /* Otros estilos según sea necesario */
+}
+ 
+body {
+    background-color: black;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.formulario {
+    border: solid 2px #00008B;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #f8f9fa;
+    width: 300px;
+    max-width: 100%;
+}
+
+.formulario input[type="text"],
+.formulario input[type="password"],
+.formulario select {
+    color: black; 
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    width: calc(100% - 22px);
+    box-sizing: border-box; 
+}
+.formulario h2 {
+    color: #00008B; 
+    font-size: 24px; 
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.formulario img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.finalizarRutina {
+    background-color: yellow;
+    padding: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    border-radius: 7px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+.finalizarRutina:hover {
+    background-color: #FFFF00;
+}
+
+
+.opciones:hover {
+    background-color: #dfe6e9;
+}
+
+label{
+    padding: 5px;
+}

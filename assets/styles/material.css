@@ -1,4 +1,26 @@
 @import 'bootstrap';
+
+.opciones {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:  rgb(255, 255, 255);
+    color: rgba(44, 52, 54);
+}
+
+body {
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+h2{
+    color: #00008B ;
+    font-weight: bold;
+}
+
 body{
     background-color: black;
+}
+
+label{
+    padding: 5px;
 }

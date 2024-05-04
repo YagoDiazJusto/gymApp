@@ -1,8 +1,26 @@
 @import 'bootstrap';
 body{
     background-color: black;
+    height: 100%;
+}
+html{
+    height: 100%;
 }
 a{
     text-decoration: none;
     color: yellow;
+}
+
+.opciones {
+    /* Estilos para el borde */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Estilos para el fondo y texto */
+    background-color:  rgb(255, 255, 255);
+    color: rgba(44, 52, 54);
+    /* Otros estilos según sea necesario */
+}
+
+.footer{
+    background-color: #ccc;
 }

@@ -215,7 +215,13 @@ class GymAppController extends AbstractController
 
         $form1 = $this->createFormBuilder()
             ->add('email')
-            ->add('deleteBtn', SubmitType::class, ['label' => 'Enviar', "attr" => ["class" => "btn"]], )
+            ->add('deleteBtn', SubmitType::class, [
+                'label' => 'Eliminar',
+                'attr' => [
+                    'class' => 'finalizarRutina',
+                    'style' => 'background-color: yellow; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
+                ]
+            ])
             ->getForm();
 
         $form1->handleRequest($request);
@@ -247,7 +253,13 @@ class GymAppController extends AbstractController
                 )
             )
             ->add('password', PasswordType::class)
-            ->add('update', SubmitType::class, ['label' => 'Enviar'])
+            ->add('update', SubmitType::class, [
+                'label' => 'Modificar',
+                'attr' => [
+                    'class' => 'finalizarRutina',
+                    'style' => 'background-color: yellow; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
+                ]
+            ])
             ->getForm();
 
         $form2->handleRequest($request);
@@ -324,7 +336,13 @@ class GymAppController extends AbstractController
                     'choices' => $musculos
                 )
             )
-            ->add('addEjercicio', SubmitType::class, ['label' => 'Enviar', "attr" => ["class" => "btn"]], )
+            ->add('addEjercicio', SubmitType::class, [
+                'label' => 'Añadir',
+                "attr" => [
+                    "class" => "btn",
+                    'style' => 'background-color: yellow; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
+                ]
+            ], )
             ->getForm();
 
         $form1->handleRequest($request);
@@ -358,7 +376,13 @@ class GymAppController extends AbstractController
                     ])
                 ],
             ])
-            ->add('addMaquina', SubmitType::class, ['label' => 'Enviar'])
+            ->add('addMaquina', SubmitType::class, [
+                'label' => 'Añadir',
+                "attr" => [
+                    "class" => "btn",
+                    'style' => 'background-color: yellow; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
+                ]
+            ])
             ->getForm();
 
         $form2->handleRequest($request);

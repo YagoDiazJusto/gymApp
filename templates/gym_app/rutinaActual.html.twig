@@ -17,7 +17,7 @@
 		<a class="nav-link" href="{{ path('logout') }}" style="color:yellow">Cerrar sesión</a>
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
-			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
+			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px" hidden>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
@@ -28,25 +28,38 @@
 	</nav>
 	<h1>Rutina Actual:{{ fecha|date("d/m/Y") }}</h1>
 	<div class="container">
-    <div class="row">
-        {% for ej in ejercicios %}
-            <div class="col-md-5 col-12 card">
-                <div class="row">
-                    <div class="col-6">
-                        <h3>{{ ej.ejercicio.nombreEjercicio }}</h3>
-                        <p><span style="font-weight:bold">Peso: </span>{{ ej.peso }}</p>
-                        <p><span style="font-weight:bold">Series: </span>{{ ej.series }}</p>
-                        <p><span style="font-weight:bold">Repeticiones por serie: </span> {{ ej.repeticionesPorSerie }}</p>
-                    </div>
-                    <div class="col-6">
-                        <img src="/img/{{ ej.ejercicio.maquina.imagen }}" class="col-12">
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <p class="text-center">
-        <button class="finalizarRutina">Finalizar Rutina</button>
-    </p>
-</div>
+		<div class="row">
+			{% for ej in ejercicios %}
+				<div class="col-md-5 col-12 card">
+					<div class="row">
+						<div class="col-6">
+							<h3>{{ ej.ejercicio.nombreEjercicio }}</h3>
+							<p>
+								<span style="font-weight:bold">Peso:
+								</span>
+								{{ ej.peso }}</p>
+							<p>
+								<span style="font-weight:bold">Series:
+								</span>
+								{{ ej.series }}</p>
+							<p>
+								<span style="font-weight:bold">Repeticiones por serie:
+								</span>
+								{{ ej.repeticionesPorSerie }}</p>
+						</div>
+						<div class="col-6">
+							<img src="/img/{{ ej.ejercicio.maquina.imagen }}" class="col-12">
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<p class="text-center">
+			<button class="finalizarRutina">Finalizar Rutina</button>
+		</p>
+	</div>
+
+	<div class="footer fixed-bottom" style="background-color:red">
+		a
+	</div>
 {% endblock %}

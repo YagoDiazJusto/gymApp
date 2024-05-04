@@ -17,7 +17,7 @@
 		<a class="nav-link" href="{{ path('logout') }}" style="color:yellow">Cerrar sesión</a>
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
-			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
+			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px" hidden>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
@@ -38,15 +38,20 @@
 						<div class="card">
 							<h3>{{ d2.ejercicio.nombreEjercicio }}</h3>
 							<p>{{ d2.ejercicio.descripcion }}</p>
-							<p><span style="font-weight:bold">Maquina:</span>
+							<p>
+								<span style="font-weight:bold">Maquina:</span>
 								{{ d2.ejercicio.maquina.nombre }}</p>
-							<p><span style="font-weight:bold">Grupo Muscular:</span>
+							<p>
+								<span style="font-weight:bold">Grupo Muscular:</span>
 								{{ d2.ejercicio.grupoMuscular.nombre }}</p>
-							<p><span style="font-weight:bold">Peso:</span>
+							<p>
+								<span style="font-weight:bold">Peso:</span>
 								{{ d2.peso }}</p>
-							<p><span style="font-weight:bold">Series:</span>
+							<p>
+								<span style="font-weight:bold">Series:</span>
 								{{ d2.series }}</p>
-							<p><span style="font-weight:bold">Repeticiones por Serie:</span>
+							<p>
+								<span style="font-weight:bold">Repeticiones por Serie:</span>
 								{{ d2.repeticionesPorSerie }}</p>
 						</div>
 					</div>
@@ -54,6 +59,10 @@
 			</div>
 			{% set num = num + 1 %}
 		{% endfor %}
+	</div>
+
+	<div class="footer fixed-bottom">
+		a
 	</div>
 
 {% endblock %}

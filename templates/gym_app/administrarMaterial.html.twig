@@ -2,6 +2,9 @@
 {% block stylesheets %}
 	{{ encore_entry_link_tags('material') }}
 {% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('material') }}
+{% endblock %}
 {% block title %}
 	AddMaterial
 {% endblock %}
@@ -13,65 +16,62 @@
 		<a class="nav-link" href="{{ path('logout') }}" style="color:yellow">Cerrar sesión</a>
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
-			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px">
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Añadir nuevo administrador</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Borrar usuarios</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}" >Actualizar usuarios</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nuevo ejercicio</option>
-				<option value="{{ path('administrarMaterial',{userName:userName}) }}" >Añadir nueva máquina</option>
+			<select onchange="window.location.href=this.value;" class="opciones" style="border:0px">
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
+				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
 			</select>
 		</div>
 	</nav>
+
 	<div class="container">
-		{{form_start(form1)}}
-		<div>
-			{{ form_label(form1.nombreEjercicio, 'Introduce el nombre')
-			}}
+		<div class="row justify-content-center" style="margin-top:10%">
+			<div class=".formulario col-md-6 col-12" style="border: solid 2px #00008B; border-radius: 5px; padding: 15px; margin: 10px; background-color: #f8f9fa; width: 300px; max-width: 100%;">
+				<h2 style="color: #00008B; font-size: 24px; margin-bottom: 20px; font-weight: bold;">Añadir ejercicio</h2>
+				{{form_start(form1)}}
+				<div>
+					{{ form_label(form1.nombreEjercicio, 'Introduce el nombre') }}
+					{{ form_widget(form1.nombreEjercicio, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				<div>
+					{{ form_label(form1.descripcion, 'Introduce la descripción',) }}
+					{{ form_widget(form1.descripcion, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				<div>
+					{{ form_label(form1.grupoMuscular, 'Introduzca el grupo muscular') }}
+					{{ form_widget(form1.grupoMuscular, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				<div>
+					{{ form_label(form1.maquina, 'Introduzca la máquina') }}
+					{{ form_widget(form1.maquina, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				{{form_end(form1)}}
+			</div>
 
-			{{ form_widget(form1.nombreEjercicio)}}
+			<div class=".formulario col-md-6 col-12" style="border: solid 2px #00008B; border-radius: 5px; padding: 15px; margin: 10px; background-color: #f8f9fa; width: 300px; max-width: 100%;">
+				<h2 style="color: #00008B; font-size: 24px; margin-bottom: 20px; font-weight: bold;">Añadir máquina</h2>
+				{{form_start(form2)}}
+				<div>
+					{{ form_label(form2.nombre, 'Introduce el nombre') }}
+					{{ form_widget(form2.nombre, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				<div>
+					{{ form_label(form2.marca, 'Introduce la marca') }}
+					{{ form_widget(form2.marca, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				<div>
+					{{ form_label(form2.imagen, 'Introduzca la imagen') }}
+					{{ form_widget(form2.imagen, {'attr': {'style': 'width: calc(100% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;'}})}}
+				</div>
+				{{form_end(form2)}}
+			</div>
 		</div>
-		<div>
-			{{ form_label(form1.descripcion, 'Introduce la descripción',) }}
-
-
-			{{ form_widget(form1.descripcion)}}
-		</div>
-		<div>
-			{{ form_label(form1.grupoMuscular, 'Introduzca el grupo muscular',)
-			}}
-
-			{{ form_widget(form1.grupoMuscular)}}
-		</div>
-        <div>
-			{{ form_label(form1.maquina, 'Introduzca la máquina',)
-			}}
-
-			{{ form_widget(form1.maquina)}}
-		</div>
-        
-		{{form_end(form1)}}
-
-        {{form_start(form2)}}
-		<div>
-			{{ form_label(form2.nombre, 'Introduce el nombre')
-									}}
-
-			{{ form_widget(form2.nombre)}}
-		</div>
-		<div>
-			{{ form_label(form2.marca, 'Introduce la marca') }}
-
-
-			{{ form_widget(form2.marca)}}
-		</div>
-		<div>
-			{{ form_label(form2.imagen, 'Introduzca número de repeticiones por serie',)
-			}}
-
-			{{ form_widget(form2.imagen)}}
-		</div>
-		{{form_end(form2)}}
 	</div>
+
+	<div class="footer fixed-bottom">
+		a
 	</div>
 
 {% endblock %}
