@@ -31,6 +31,12 @@ class DetalleRutinaRepository extends ServiceEntityRepository
         ;
     }
 
+    public function remove(DetalleRutina $detalle): void
+    {
+        $this->getEntityManager()->remove($detalle);
+        $this->getEntityManager()->flush();
+    }
+
 
     //    /**
     //     * @return DetalleRutina[] Returns an array of DetalleRutina objects

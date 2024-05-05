@@ -201,7 +201,7 @@ class GymAppController extends AbstractController
     }
 
     #[Route("/administrarUsuarios/{userName}", name: "administrarUsuarios")]
-    function administrarUsuarios($userName, UserRepository $userRepository, Request $request, UserPasswordHasherInterface $passwordEncoder, EntityManagerInterface $entityManager)
+    function administrarUsuarios($userName, UserRepository $userRepository, RutinaRepository $rutinaRepository, Request $request, UserPasswordHasherInterface $passwordEncoder, EntityManagerInterface $entityManager, DetalleRutinaRepository $detalleRutinaRepository)
     {
         //Saber si el usuario es o no administrador
         $user = $userRepository->getUserByEmail($userName);
@@ -228,6 +228,16 @@ class GymAppController extends AbstractController
         if ($form1->isSubmitted() && $form1->isValid() && $form1->get('deleteBtn')->isClicked()) {
             $data = implode(",", $form1->getData());
             if ($data != null) {
+                //Borro el usuario introducido, las rutinas asociadas a ese usuario y los detalles rutinas también
+                $usuario = $userRepository->getUserByEmail($data);
+                $rutinas = $rutinaRepository->findByUser($usuario);
+                foreach ($rutinas as $r) {
+                    $detalles = $detalleRutinaRepository->findByRutina($r);
+                    foreach ($detalles as $d) {
+                        $detalleRutinaRepository->remove($d);
+                    }
+                    $rutinaRepository->remove($r);
+                }
                 $user = $userRepository->getUserByEmail($data);
                 $userRepository->remove($user);
                 $this->addFlash('correct', 'Borraste el usuario');

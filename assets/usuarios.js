@@ -23,3 +23,4 @@ if (isAdmin == "admin") {
 } else {
     configuracion.setAttribute("hidden", false);
 }
+

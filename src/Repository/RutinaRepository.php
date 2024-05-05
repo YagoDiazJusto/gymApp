@@ -47,6 +47,11 @@ class RutinaRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function remove(Rutina $rutina): void
+    {
+        $this->getEntityManager()->remove($rutina);
+        $this->getEntityManager()->flush();
+    }
 
 
 

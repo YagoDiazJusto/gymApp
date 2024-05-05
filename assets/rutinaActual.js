@@ -56,3 +56,10 @@ if (isAdmin == "admin") {
 } else {
     configuracion.setAttribute("hidden", false);
 }
+
+//Redirección
+
+document.querySelector('.finalizarRutina').addEventListener('click', function() {
+    var url = this.getAttribute('data-url');
+    window.location.href = url;
+});

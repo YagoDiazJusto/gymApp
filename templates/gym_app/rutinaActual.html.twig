@@ -10,22 +10,25 @@
 {% endblock %}
 
 {% block body %}
-	<nav class="nav">
+	<nav class="nav" style="padding:10px;font-size:20px;border:solid 1px grey;border-right:0px;border-top:0px;border-left:0px;background-color:#6a6969;">
+		<a class="nav-link active" aria-current="page">
+		<img src="/img/logo.png" style="max-width:40px;position:relative;bottom:20%;"></a>
 		<a class="nav-link active" aria-current="page" href="{{ path('app_gym',{userName:userName}) }}" style="color:yellow">Home</a>
 		<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:yellow">Rutina actual</a>
 		<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:yellow">Visualizar Rutinas</a>
 		<a class="nav-link" href="{{ path('logout') }}" style="color:yellow">Cerrar sesión</a>
 		<div class=" pt-2">
 			<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px">⚙️</button>
-			<select onchange="window.location.href=this.value;" hidden class="opciones" style="border:0px" hidden>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Añadir nuevo administrador</option>
-				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
+			<select onchange="window.location.href=this.value;" class="opciones" style="border:0px" hidden="false">
+				<option>Seleccione...</option>
 				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
+				<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Borrar usuarios</option>
 				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nuevo ejercicio</option>
 				<option value="{{ path('administrarMaterial',{userName:userName}) }}">Añadir nueva máquina</option>
 			</select>
 		</div>
 	</nav>
+
 	<h1>Rutina Actual:{{ fecha|date("d/m/Y") }}</h1>
 	<div class="container">
 		<div class="row">
@@ -55,11 +58,27 @@
 			{% endfor %}
 		</div>
 		<p class="text-center">
-			<button class="finalizarRutina">Finalizar Rutina</button>
+			<button class="finalizarRutina" data-url="{{ path('visualizarRutinas', {'userName': userName}) }}">Finalizar Rutina</button>
 		</p>
 	</div>
 
-	<div class="footer fixed-bottom" style="background-color:red">
-		a
+	<div class="footer" style="position:fixed;bottom:0;width:100%;">
+		<div class="row">
+			<div class="row pt-2 pb-2 justify-content-center">
+				<div class="col-3 text-center">
+					<img src="/img/instagram.png" class="col-3" style="max-width:50px">
+				</div>
+				<div class="col-3 text-center">
+					<img src="/img/logo.png" class="col-3" style="max-width:50px">
+				</div>
+				<div class="col-3 text-center">
+					<img src="/img/twitter.png" class="col-3" style="max-width:50px">
+				</div>
+			</div>
+			<div class="row justify-content-center" style="border-top:1px solid black">
+				<span class="col-md-6 col-12 text-light text-center">Política de privacidad</span>
+				<span class="col-md-6 col-12 text-light text-center">Protección de datos</span>
+			</div>
+		</div>
 	</div>
 {% endblock %}

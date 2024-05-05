@@ -59,3 +59,7 @@ h1 {
     color: rgba(44, 52, 54);
     /* Otros estilos según sea necesario */
 }
+
+.footer{
+    background-color: #6a6969;
+}

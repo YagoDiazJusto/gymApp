@@ -22,3 +22,14 @@ if (isAdmin == "admin") {
 } else {
     configuracion.setAttribute("hidden", false);
 }
+
+//Visualizar footer
+
+window.addEventListener('scroll', function() {
+    var footer = document.querySelector('.footer');
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.style.display = 'block'; // Muestra el footer cuando el usuario llega al final de la página
+    } else {
+        footer.style.display = 'none'; // Oculta el footer si no está al final de la página
+    }
+});
