@@ -1,12 +1,26 @@
 @import 'bootstrap';
 
 body{
-    background-color: black;
+    background-color: white;
 }
 input{
     margin-bottom: 25px;
 }
 
 .footer{
-    background-color: #6a6969;
+    background-color:#CEE5F2;
+}
+
+.card{
+    background-color:#f8f9fa;
+    border-radius:5px;
+    padding:15px;
+    margin-right:25px;
+    margin-bottom:25px;
+    min-height:300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.formAdd div{
+    text-align: left;
 }

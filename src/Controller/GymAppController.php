@@ -97,7 +97,7 @@ class GymAppController extends AbstractController
                 'label' => 'Confirmar',
                 'attr' => [
                     'class' => 'btn',
-                    'style' => 'background-color: yellow;'
+                    'style' => 'background-color: white;font-weight:bold;'
                 ]
             ])
             ->getForm();
@@ -219,7 +219,7 @@ class GymAppController extends AbstractController
                 'label' => 'Eliminar',
                 'attr' => [
                     'class' => 'finalizarRutina',
-                    'style' => 'background-color: yellow; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
+                    'style' => 'background-color: white; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
                 ]
             ])
             ->getForm();
@@ -267,7 +267,7 @@ class GymAppController extends AbstractController
                 'label' => 'Modificar',
                 'attr' => [
                     'class' => 'finalizarRutina',
-                    'style' => 'background-color: yellow; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
+                    'style' => 'background-color: white; padding: 5px; margin-top: 10px; font-weight: bold; border-radius: 7px; color: #000; border: none;'
                 ]
             ])
             ->getForm();
@@ -350,7 +350,7 @@ class GymAppController extends AbstractController
                 'label' => 'Añadir',
                 "attr" => [
                     "class" => "btn",
-                    'style' => 'background-color: yellow; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
+                    'style' => 'background-color: white; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
                 ]
             ], )
             ->getForm();
@@ -390,7 +390,7 @@ class GymAppController extends AbstractController
                 'label' => 'Añadir',
                 "attr" => [
                     "class" => "btn",
-                    'style' => 'background-color: yellow; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
+                    'style' => 'background-color: white; padding: 5px; margin-top: 15px; font-weight: bold; border-radius: 7px; color: #000; border: none;width: calc(100% - 22px);'
                 ]
             ])
             ->getForm();

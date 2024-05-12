@@ -1,4 +1,5 @@
 import './styles/rutinaActual.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 //Puenteado de las sesiones de symfony con js
 let btnfinalizarRutina = document.querySelector(".finalizarRutina");
 console.log(btnfinalizarRutina);
@@ -34,8 +35,8 @@ btnfinalizarRutina.addEventListener("click", (e) => {
 
 //Botón configuración
 let configuracion = document.querySelector(".config");
-let isAdmin = configuracion.getAttribute("id");
 let opciones = document.querySelector(".opciones");
+let btnOpciones = document.querySelector("#not_admin");
 let oculto = true;
 configuracion.addEventListener("click", (e) => {
     if (e.target.className == "config") {
@@ -44,18 +45,19 @@ configuracion.addEventListener("click", (e) => {
             opciones.removeAttribute("hidden");
         } else {
             oculto = true;
-            opciones.setAttribute("hidden", false);
+            opciones.setAttribute("hidden", true);
         }
 
     }
 });
 
 //Ocultar boton de configuración
-if (isAdmin == "admin") {
-    opciones.removeAttribute("hidden");
+if (btnOpciones == null) {
+    configuracion.removeAttribute("hidden");
 } else {
-    configuracion.setAttribute("hidden", false);
+    configuracion.setAttribute("hidden", true);
 }
+
 
 //Redirección
 

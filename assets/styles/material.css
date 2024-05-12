@@ -1,5 +1,9 @@
 @import 'bootstrap';
 
+html{
+    height: 100%;
+    margin-bottom: 500px;
+}
 .opciones {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -8,17 +12,16 @@
 }
 
 body {
-    color: black;
-    font-family: Arial, sans-serif;
+    color:black;
 }
 
 h2{
-    color: #00008B ;
+    color: black ;
     font-weight: bold;
 }
 
 body{
-    background-color: black;
+    background-color: white;
 }
 
 label{
@@ -26,5 +29,5 @@ label{
 }
 
 .footer{
-    background-color: #6a6969;
+    background-color:#CEE5F2;
 }

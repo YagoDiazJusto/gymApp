@@ -1,8 +1,11 @@
 @import 'bootstrap';
 body{
-    background-color: black;
+    background-color: white;
 }
-
+html{
+    height: 100%;
+    margin-bottom: 500px;
+}
 .opciones {
     /* Estilos para el borde */
     border: 1px solid #ccc;
@@ -14,19 +17,19 @@ body{
 }
  
 body {
-    background-color: black;
+    background-color: white;
     color: black;
     font-family: Arial, sans-serif;
 }
 
 .formulario {
-    border: solid 2px #00008B;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
     background-color: #f8f9fa;
     width: 300px;
     max-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .formulario input[type="text"],
@@ -42,7 +45,7 @@ body {
     box-sizing: border-box; 
 }
 .formulario h2 {
-    color: #00008B; 
+    color: black; 
     font-size: 24px; 
     margin-bottom: 20px;
     font-weight: bold;
@@ -56,7 +59,7 @@ body {
 }
 
 .finalizarRutina {
-    background-color: yellow;
+    background-color: white;
     padding: 10px;
     margin-top: 15px;
     font-weight: bold;
@@ -66,10 +69,6 @@ body {
     cursor: pointer;
     width: calc(100% - 22px);
     box-sizing: border-box;
-}
-
-.finalizarRutina:hover {
-    background-color: #FFFF00;
 }
 
 
@@ -82,5 +81,5 @@ label{
 }
 
 .footer{
-    background-color: #6a6969;
+    background-color:#CEE5F2;
 }

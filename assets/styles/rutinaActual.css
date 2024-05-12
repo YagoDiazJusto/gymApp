@@ -1,22 +1,26 @@
 @import 'bootstrap';
 
+html{
+    height: 100%;
+    margin-bottom: 500px;
+}
 body {
-    background-color: black;
+    background-color: white;
 }
 
 h1 {
-    color: yellow;
+    color: black;
     text-align: center;
     margin-top: 25px;
 }
 
  .card {
-        border: solid 2px #00008B;
-        border-radius: 5px;
-        padding: 15px;
-        margin: 10px;
-        background-color: #f8f9fa;
-    }
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #f8f9fa;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
     .card p {
         color: #000;
@@ -24,7 +28,7 @@ h1 {
     }
 
     .card h3 {
-        color: #00008B; 
+        color: black; 
         font-size: 24px; 
         margin-bottom: 10px; 
     }
@@ -37,18 +41,15 @@ h1 {
     }
 
     .finalizarRutina {
-        background-color: yellow;
+        background-color: white;
         padding: 5px;
         margin-top: 10px;
         font-weight: bold;
         border-radius: 7px;
         color: #000;
-        border: none;
+        border: solid 2px black;
     }
 
-    .finalizarRutina:hover {
-        background-color: #FFFF00;
-    }
 
     .opciones {
     /* Estilos para el borde */
@@ -61,5 +62,5 @@ h1 {
 }
 
 .footer{
-    background-color: #6a6969;
+    background-color:#CEE5F2;
 }
