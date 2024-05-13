@@ -31,6 +31,16 @@ class DetalleRutinaRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findExercises($ejercicio): array
+    {
+        $exercises = $this->createQueryBuilder('d')
+            ->andWhere('d.ejercicio = :ejercicio')
+            ->setParameter('ejercicio', $ejercicio)
+            ->getQuery()
+            ->getResult();
+        return array_reverse($exercises);
+    }
+
     public function remove(DetalleRutina $detalle): void
     {
         $this->getEntityManager()->remove($detalle);

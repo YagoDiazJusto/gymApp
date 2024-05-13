@@ -76,7 +76,7 @@ class GymAppController extends AbstractController
     }
 
     #[Route('/addEjercicioRutina/{nombre}/{userName}', name: 'addEjercicioRutina')]
-    public function addEjercicioRutina($nombre, $userName, EjercicioRepository $ejercicioRepository, Request $request, UserRepository $userRepository): Response
+    public function addEjercicioRutina($nombre, $userName, EjercicioRepository $ejercicioRepository, Request $request, UserRepository $userRepository, DetalleRutinaRepository $detalleRutinaRepository): Response
     {
         //Saber si el usuario es o no administrador
         $user = $userRepository->getUserByEmail($userName);
@@ -88,6 +88,24 @@ class GymAppController extends AbstractController
             }
         }
         $ejercicio = $ejercicioRepository->getEjercicioByName($nombre);
+
+        //Sacar última información sobre ejrcicio
+
+        $ejercicios = $detalleRutinaRepository->findExercises($ejercicio);
+        $ultimoPeso = 0;
+        $ultimasSeries = 0;
+        $ultimasRepes = 0;
+        foreach ($ejercicios as $ej) {
+            if ($ej->getRutina()->getUsuario()->getId() == $user->getId()) {
+                $ultimoPeso = $ej->getPeso();
+                $ultimasSeries = $ej->getSeries();
+                $ultimasRepes = $ej->getRepeticionesPorSerie();
+            }
+        }
+
+
+
+        //Crear formulario
 
         $form = $this->createFormBuilder()
             ->add('peso', IntegerType::class)
@@ -114,6 +132,9 @@ class GymAppController extends AbstractController
             "form" => $form,
             'userName' => $userName,
             'isAdmin' => $isAdmin,
+            'ultimoPeso' => $ultimoPeso,
+            'ultimasSeries' => $ultimasSeries,
+            'ultimasRepes' => $ultimasRepes,
         ]);
     }
 
