@@ -52,8 +52,8 @@
 		<h1 style="color:black" class="text-center pt-5 pb-4">Grupos Musculares</h1>
 		<div class="musculos row g-5">
 			{% for grupo in grupos %}
-				<div class="col-md-3 col-6">
-					<a href="{{ path('seleccionarEjercicio',{nombre:grupo.nombre,userName:userName}) }}"><img src="/img/{{grupo.imagen}}" class="col-12"></a>
+				<div class="col-lg-3 col-6">
+					<a href="{{ path('seleccionarEjercicio',{nombre:grupo.nombre,userName:userName}) }}"><img src="/img/{{grupo.imagen}}" class="col-12 imgEj"></a>
 				</div>
 			{% endfor %}
 		</div>

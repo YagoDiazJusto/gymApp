@@ -65,3 +65,48 @@ document.querySelector('.finalizarRutina').addEventListener('click', function() 
     var url = this.getAttribute('data-url');
     window.location.href = url;
 });
+
+
+//Animación botones
+
+document.body.addEventListener("mouseover", (e) => {
+    if (e.target.tagName == "BUTTON" && e.target.className != "config") {
+        e.target.style.backgroundColor = "yellow";
+    }
+});
+
+document.body.addEventListener("mouseout", (e) => {
+    if (e.target.tagName == "BUTTON") {
+        e.target.style.backgroundColor = "transparent";
+    }
+});
+
+
+//Ampliar cartas
+
+function getCardElement(target) {
+            if (target.classList.contains("card")) {
+                return target;
+            } else if (target.parentElement && target.parentElement.classList.contains("card")) {
+                return target.parentElement;
+            } else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains("card")) {
+                return target.parentElement.parentElement;
+            }
+            return null;
+        }
+
+        document.body.addEventListener("mouseover", (e) => {
+            const cardElement = getCardElement(e.target);
+            if (cardElement) {
+                cardElement.style.transform = "scale(1.15)";
+                cardElement.style.zIndex = "1";
+            }
+        });
+
+        document.body.addEventListener("mouseout", (e) => {
+            const cardElement = getCardElement(e.target);
+            if (cardElement) {
+                cardElement.style.transform = "scale(1)";
+                cardElement.style.zIndex = "0";
+            }
+        });

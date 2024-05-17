@@ -443,7 +443,7 @@ class GymAppController extends AbstractController
     }
 
     #[Route("/visualizarRutinas/{userName}", name: "visualizarRutinas")]
-    public function visualizarRutinas($userName, UserRepository $userRepository, RutinaRepository $rutinaRepository, DetalleRutinaRepository $detalleRutinaRepository, EjercicioRepository $ejercicioRepository)
+    public function visualizarRutinas($userName, UserRepository $userRepository, RutinaRepository $rutinaRepository, DetalleRutinaRepository $detalleRutinaRepository, EjercicioRepository $ejercicioRepository, GrupoMuscularRepository $grupoMuscularRepository, MaquinaRepository $maquinaRepository)
     {
         //Saber si el usuario es o no administrador
         $user = $userRepository->getUserByEmail($userName);
@@ -455,6 +455,35 @@ class GymAppController extends AbstractController
             }
         }
 
+        //Select filtrado maquinas
+        $musculos = [];
+        foreach ($grupoMuscularRepository->findAll() as $gM) {
+            $musculos[$gM->getNombre()] = $gM;
+        }
+        $maquinas = [];
+        foreach ($maquinaRepository->findAll() as $m) {
+            $maquinas[$m->getNombre()] = $m;
+        }
+
+        $form1 = $this->createFormBuilder()
+            ->add(
+                'grupoMuscular',
+                ChoiceType::class,
+                array(
+                    'choices' => $musculos
+                )
+            )->getForm();
+
+        $form2 = $this->createFormBuilder()
+            ->add(
+                'maquina',
+                ChoiceType::class,
+                array(
+                    'choices' => $maquinas
+                )
+            )->getForm();
+
+
         $rutinas = $rutinaRepository->findByUser($user);
         $detallesRutina = [];
         foreach ($rutinas as $r) {
@@ -465,6 +494,8 @@ class GymAppController extends AbstractController
             "rutinas" => $rutinas,
             'isAdmin' => $isAdmin,
             "detallesRutina" => $detallesRutina,
+            "form1" => $form1,
+            "form2" => $form2,
         ]);
     }
 

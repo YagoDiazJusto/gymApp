@@ -26,3 +26,16 @@ if (btnOpciones == null) {
 }
 
 
+//Animación botones
+
+document.body.addEventListener("mouseover", (e) => { 
+    if (e.target.tagName == "BUTTON" && e.target.className!="config") {
+        e.target.style.backgroundColor = "yellow";
+    } 
+})
+
+document.body.addEventListener("mouseout", (e) => {  
+    if (e.target.tagName == "BUTTON") {
+        e.target.style.backgroundColor = "transparent";
+    } 
+})

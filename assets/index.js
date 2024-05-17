@@ -24,3 +24,19 @@ if (btnOpciones == null) {
 } else {
     configuracion.setAttribute("hidden", true);
 }
+
+
+//Ampliar imágenes
+document.body.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("imgEj")) {
+        e.target.style.transform = "scale(1.3)";
+        e.target.style.zIndex = "1";
+    }
+});
+
+document.body.addEventListener("mouseout", (e) => {
+    if (e.target.classList.contains("imgEj")) {
+    e.target.style.transform = "scale(1)";
+    e.target.style.zIndex = "0";
+    }
+});

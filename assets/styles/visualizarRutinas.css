@@ -1,39 +1,89 @@
 @import 'bootstrap';
-body{
+
+body {
     background-color: white;
 }
-html{
+
+html {
     height: 100%;
     margin-bottom: 500px;
 }
+
 .card {
-        background-color: #f8f9fa;
-        border: 1px solid #ced4da;
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 20px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    }
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
-    .card h3 {
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: black;
-        border-bottom: 1px solid black;
-        padding-bottom: 5px;
-    }
+.card h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
 
-    .card p {
-        margin-bottom: 10px; 
-    }
+.card p {
+    margin-bottom: 10px;
+}
 
-    .opciones {
+.opciones {
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color:  rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     color: rgba(44, 52, 54);
 }
 
-.footer{
-    background-color:#CEE5F2;
+.footer {
+    background-color: #CEE5F2;
+}
+
+button {
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+    color: #000;
+    border: solid 2px black;
+    margin-bottom: 10px;
+    min-width: 156px;
+}
+
+.filtro {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media (min-width:1200px) {
+    .card{
+        min-height: 480px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+    .card{
+        min-height: 440px;
+    }
+}
+
+@media (max-width:992px) {
+    .card{
+        min-height: 410px;
+    }
+}
+
+@media (min-width:992px)
+{
+    .bajar{
+        position: relative;
+        top: 13px;
+    }
 }
