@@ -7,11 +7,10 @@ a{
 }
 body{
     background-color: white;
-}
-html{
     height: 100%;
-    margin-bottom: 500px;
+    padding-bottom: 100px;
 }
+
 .opciones {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -20,7 +19,7 @@ html{
 }
 
 .footer{
-    background-color:#CEE5F2;
+    background-color:#ced3ff;
 }
 
 .card{
@@ -31,4 +30,13 @@ html{
     margin-bottom:25px;
     min-height:300px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #7967f1, #00bfff, #ced3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
 }

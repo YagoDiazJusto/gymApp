@@ -1,11 +1,9 @@
 @import 'bootstrap';
 
-html{
-    height: 100%;
-    margin-bottom: 500px;
-}
 body {
     background-color: white;
+    height: 100%;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -52,15 +50,21 @@ h1 {
 
 
     .opciones {
-    /* Estilos para el borde */
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* Estilos para el fondo y texto */
     background-color:  rgb(255, 255, 255);
     color: rgba(44, 52, 54);
-    /* Otros estilos según sea necesario */
 }
 
 .footer{
-    background-color:#CEE5F2;
+    background-color:#ced3ff;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #7967f1, #00bfff, #ced3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
 }

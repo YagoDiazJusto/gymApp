@@ -29,5 +29,15 @@ label{
 }
 
 .footer{
-    background-color:#CEE5F2;
+    background-color:#ced3ff;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #7967f1, #00bfff, #ced3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
 }

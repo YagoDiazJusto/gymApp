@@ -9,9 +9,9 @@ inputBuscar.addEventListener("input", (e) => {
     for (const i of ejercicios.querySelectorAll(".ejercicio")) {
         let txt = i.querySelector("a").innerText.toLowerCase();
         if (txt.includes(searchTerm)) {
-            i.style.display = ""; 
+            i.style.display = "";
         } else {
-            i.style.display = "none"; 
+            i.style.display = "none";
         }
     }
 });
@@ -56,3 +56,45 @@ if (document.body.offsetHeight > window.innerHeight) {
 } else {
     footer.style.display = 'block';
 }
+
+//Ampliar cartas
+
+function getCardElement(target) {
+    if (target.classList.contains("card")) {
+        return target;
+    } else if (target.parentElement && target.parentElement.classList.contains("card")) {
+        return target.parentElement;
+    } else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains("card")) {
+        return target.parentElement.parentElement;
+    }
+    return null;
+}
+
+document.body.addEventListener("mouseover", (e) => {
+    const cardElement = getCardElement(e.target);
+    if (cardElement) {
+        cardElement.style.transform = "scale(1.15)";
+        cardElement.style.zIndex = "1";
+    }
+});
+
+document.body.addEventListener("mouseout", (e) => {
+    const cardElement = getCardElement(e.target);
+    if (cardElement) {
+        cardElement.style.transform = "scale(1)";
+        cardElement.style.zIndex = "0";
+    }
+});
+
+
+//Iluminar ejercicios
+
+let enlace = document.querySelector(".enlace");
+
+enlace.addEventListener("mouseover", (e) => {
+    e.target.style.color = "#9ea7f9";
+});
+
+enlace.addEventListener("mouseout", (e) => {
+    e.target.style.color = "black";
+});

@@ -31,12 +31,12 @@ if (btnOpciones == null) {
 
 document.body.addEventListener("mouseover", (e) => { 
     if (e.target.tagName == "BUTTON" && e.target.className!="config") {
-        e.target.style.backgroundColor = "yellow";
+        e.target.style.backgroundColor = "#ced3ff";
     } 
 })
 
 document.body.addEventListener("mouseout", (e) => {  
-    if (e.target.tagName == "BUTTON") {
-        e.target.style.backgroundColor = "transparent";
+    if (e.target.tagName == "BUTTON" && e.target.className!="config" && e.target.className!="navbar-toggler") {
+        e.target.style.backgroundColor = "white";
     } 
 })

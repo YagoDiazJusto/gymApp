@@ -59,7 +59,7 @@ btnFiltro.addEventListener("click", (e) => {
 
 document.body.addEventListener("mouseover", (e) => { 
     if (e.target.tagName == "BUTTON" && e.target.className!="config") {
-        e.target.style.backgroundColor = "yellow";
+        e.target.style.backgroundColor = "#ced3ff";
     } 
 })
 

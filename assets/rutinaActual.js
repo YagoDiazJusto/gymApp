@@ -6,13 +6,13 @@ console.log(btnfinalizarRutina);
 btnfinalizarRutina.addEventListener("click", (e) => {
     if (e.target.className == "finalizarRutina") {
         console.log("ab");
-        
+
         const sessionData = {
             formValue: false,
             RutinaActual: ''
         };
 
-        fetch('http://localhost:8000/actualizar-datos-sesion', { 
+        fetch('http://localhost:8000/actualizar-datos-sesion', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,15 +21,15 @@ btnfinalizarRutina.addEventListener("click", (e) => {
         })
             .then(response => {
 
-            if (response.ok) {
-                console.log('La variable de sesión se actualizó correctamente.');
-            } else {
-                console.error('Error al actualizar la variable de sesión.');
-            }
-        })
-        .catch(error => {
-            console.error('Error en la solicitud AJAX:', error);
-        });
+                if (response.ok) {
+                    console.log('La variable de sesión se actualizó correctamente.');
+                } else {
+                    console.error('Error al actualizar la variable de sesión.');
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud AJAX:', error);
+            });
     }
 });
 
@@ -61,7 +61,7 @@ if (btnOpciones == null) {
 
 //Redirección
 
-document.querySelector('.finalizarRutina').addEventListener('click', function() {
+document.querySelector('.finalizarRutina').addEventListener('click', function () {
     var url = this.getAttribute('data-url');
     window.location.href = url;
 });
@@ -71,7 +71,7 @@ document.querySelector('.finalizarRutina').addEventListener('click', function() 
 
 document.body.addEventListener("mouseover", (e) => {
     if (e.target.tagName == "BUTTON" && e.target.className != "config") {
-        e.target.style.backgroundColor = "yellow";
+        e.target.style.backgroundColor = "#ced3ff";
     }
 });
 
@@ -85,28 +85,33 @@ document.body.addEventListener("mouseout", (e) => {
 //Ampliar cartas
 
 function getCardElement(target) {
-            if (target.classList.contains("card")) {
-                return target;
-            } else if (target.parentElement && target.parentElement.classList.contains("card")) {
-                return target.parentElement;
-            } else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains("card")) {
-                return target.parentElement.parentElement;
-            }
-            return null;
-        }
+    if (target.classList.contains("card")) {
+        return target;
+    } else if (target.parentElement && target.parentElement.classList.contains("card")) {
+        return target.parentElement;
+    } else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.classList.contains("card")) {
+        return target.parentElement.parentElement;
+    } else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.classList.contains("card")) {
+        return target.parentElement.parentElement.parentElement;
+    }
+    else if (target.parentElement && target.parentElement.parentElement && target.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement && target.parentElement.parentElement.parentElement.parentElement.classList.contains("card")) {
+        return target.parentElement.parentElement.parentElement.parentElement;
+    }
+    return null;
+}
 
-        document.body.addEventListener("mouseover", (e) => {
-            const cardElement = getCardElement(e.target);
-            if (cardElement) {
-                cardElement.style.transform = "scale(1.15)";
-                cardElement.style.zIndex = "1";
-            }
-        });
+document.body.addEventListener("mouseover", (e) => {
+    const cardElement = getCardElement(e.target);
+    if (cardElement) {
+        cardElement.style.transform = "scale(1.15)";
+        cardElement.style.zIndex = "1";
+    }
+});
 
-        document.body.addEventListener("mouseout", (e) => {
-            const cardElement = getCardElement(e.target);
-            if (cardElement) {
-                cardElement.style.transform = "scale(1)";
-                cardElement.style.zIndex = "0";
-            }
-        });
+document.body.addEventListener("mouseout", (e) => {
+    const cardElement = getCardElement(e.target);
+    if (cardElement) {
+        cardElement.style.transform = "scale(1)";
+        cardElement.style.zIndex = "0";
+    }
+});
