@@ -381,10 +381,10 @@ class GymAppController extends AbstractController
             $data = $form1->getData();
             if ($data != null) {
                 $ejercicioRepository->add($data);
-                $this->addFlash('correct', 'Añadiste el ejercicio el usuario');
+                $this->addFlash('correct', 'Añadiste con éxito');
                 return $this->redirectToRoute("administrarMaterial", ["userName" => $userName]);
             }
-            $this->addFlash('incorrect', 'El ejercicio no ha podido ser añadido');
+            $this->addFlash('incorrect', 'No se ha podido añadir');
             return $this->redirectToRoute("administrarMaterial", ["userName" => $userName]);
         }
 
