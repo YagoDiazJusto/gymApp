@@ -54,7 +54,7 @@
 			$(document).ready(function(){
 				$("#datepicker").datepicker({
 				});
-
+				//Filtra por fecha
 				// Obtener la fecha cuando se hace clic en un botón
 				$("#get-date").click(function(){
 					let selectedDate = $("#datepicker").datepicker("getDate");
@@ -76,8 +76,10 @@
 						alert("No se ha seleccionado ninguna fecha.");
 					}
 				});
+				//Filtra por múculo
 				$("#fmu").click(function(event){
 					event.preventDefault();
+					$("#datepicker").val("");
 					let musculo = $(".musculos option:selected").text();
 						$(".dias").each((index,e)=>{
 							let row = $(".row").eq(index);
@@ -85,7 +87,6 @@
 							let i=0;
 							$(e).find(".mu").each((index,e2)=>{
 								if($(e2).text()==musculo){
-									console.log($(e2).text())
 									i++;
 								}
 							});
@@ -99,8 +100,10 @@
 							i=0;
 						});
 				});
+				//Filtra por máquina
 				$("#fma").click(function(event){
 					event.preventDefault();
+					$("#datepicker").val("");
 					let maquina = $(".maquinas option:selected").text();
 						$(".dias").each((index,e)=>{
 							let row = $(".row").eq(index);
@@ -108,7 +111,6 @@
 							let i=0;
 							$(e).find(".ma").each((index,e2)=>{
 								if($(e2).text()==maquina){
-									console.log($(e2).text())
 									i++;
 								}
 							});
@@ -122,23 +124,38 @@
 							i=0;
 						});
 				});
+				$("#todo").click(function(event){
+					event.preventDefault();
+					$("#datepicker").val("");
+						$(".dias").each((index,e)=>{
+							let row = $(".row").eq(index);
+							let date = $(".date").eq(index);
+							row.css("display", "");
+							date.css("display", "");
+						});
+				});
 			});
 		</script>
 		<p class="text-center"><button class="btnFiltro">Filtros</button></p>
 		<div class="filtro" style="display:none;">
-			<p style="margin-bottom:0px;"><input style="width: calc(40% - 22px);padding: 8px; border-radius: 5px; border: 1px solid #ccc;" type="text" id="datepicker" placeholder="Seleccione fecha clickando"><button id="get-date" style="margin-left:4.5px;">Obtener Fecha</button></p>
+		<!-- Filtrar por fecha-->
+			<p style="margin-bottom:0px;text-align:center;"><input style="width: calc(40% - 22px);padding: 8px; border-radius: 5px; border: 1px solid #ccc;" type="text" id="datepicker" placeholder="Seleccione fecha clickando"><button id="get-date" style="margin-left:4.5px;">Obtener Fecha</button></p>
+			<!-- Filtrar por máquina-->
 			{{form_start(form2)}}
-				<div>
+				<div style="text-align:center;">
 					{{ form_widget(form2.maquina, {'attr': {'style': 'width: calc(40% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;', 'class': 'maquinas'}}) }}
 					<button id="fma">Filtrar por máquina</button>
 				</div>
 			{{form_end(form2)}}
+			<!-- Filtrar por músculo-->
 			{{form_start(form1)}}
-				<div>
+				<div style="text-align:center;">
 					{{ form_widget(form1.grupoMuscular, {'attr': {'style': 'width: calc(40% - 22px); padding: 8px; border-radius: 5px; border: 1px solid #ccc;', 'class': 'musculos'}}) }}
 					<button id="fmu">Filtrar por músculo</button>
 				</div>
 			{{form_end(form1)}}
+			<!-- Mostar todo-->
+			<p class="text-center"><button id="todo">Mostrar todo</button></p>
 		</div>
 		{% set num = 0 %}
 		{% for d in detallesRutina %}
