@@ -25,10 +25,10 @@ configuracion.addEventListener("click", (e) => {
     if (e.target.className == "config") {
         if (oculto == true) {
             oculto = false;
-            opciones.removeAttribute("hidden");
+            opciones.style.visibility="visible";
         } else {
             oculto = true;
-            opciones.setAttribute("hidden", true);
+            opciones.style.visibility="hidden";
         }
 
     }
@@ -89,12 +89,14 @@ document.body.addEventListener("mouseout", (e) => {
 
 //Iluminar ejercicios
 
-let enlace = document.querySelector(".enlace");
-
-enlace.addEventListener("mouseover", (e) => {
-    e.target.style.color = "#9ea7f9";
+document.body.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("enlace")) {
+        e.target.style.color = "#9ea7f9";
+    }
 });
 
-enlace.addEventListener("mouseout", (e) => {
-    e.target.style.color = "black";
+document.body.addEventListener("mouseout", (e) => {
+    if (e.target.classList.contains("enlace")) {
+        e.target.style.color = "black";
+    }
 });

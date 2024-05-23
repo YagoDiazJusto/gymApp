@@ -10,10 +10,10 @@ configuracion.addEventListener("click", (e) => {
     if (e.target.className == "config") {
         if (oculto == true) {
             oculto = false;
-            opciones.removeAttribute("hidden");
+            opciones.style.visibility="visible";
         } else {
             oculto = true;
-            opciones.setAttribute("hidden", true);
+            opciones.style.visibility="hidden";
         }
 
     }
