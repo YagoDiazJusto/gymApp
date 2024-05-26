@@ -25,18 +25,6 @@ if (btnOpciones == null) {
     configuracion.setAttribute("hidden", true);
 }
 
-
-//Visualizar footer
-
-window.addEventListener('scroll', function() {
-    var footer = document.querySelector('.footer');
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        footer.style.display = 'block'; // Muestra el footer cuando el usuario llega al final de la página
-    } else {
-        footer.style.display = 'none'; // Oculta el footer si no está al final de la página
-    }
-});
-
 //Mostrar/ocultar filtro
 
 let btnFiltro = document.querySelector(".btnFiltro");
@@ -58,14 +46,14 @@ btnFiltro.addEventListener("click", (e) => {
 //Animación botones
 
 document.body.addEventListener("mouseover", (e) => { 
-    if (e.target.tagName == "BUTTON" && e.target.className!="config") {
-        e.target.style.backgroundColor = "#ced3ff";
+    if (e.target.tagName == "BUTTON" && e.target.className!="config" && e.target.classList.contains("navbar-toggler")!=true) {
+        e.target.style.backgroundColor = "orange";
     } 
 })
 
 document.body.addEventListener("mouseout", (e) => {  
-    if (e.target.tagName == "BUTTON") {
-        e.target.style.backgroundColor = "transparent";
+    if (e.target.tagName == "BUTTON" && e.target.className!="config" && e.target.classList.contains("navbar-toggler")!=true) {
+        e.target.style.backgroundColor = "white";
     } 
 })
 

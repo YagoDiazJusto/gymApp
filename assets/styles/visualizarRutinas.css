@@ -1,14 +1,32 @@
 @import 'bootstrap';
 
 body {
-    background-color: white;
-    height: 100%;
-    padding-bottom: 100px;
+    position: relative;
+    min-height: 100vh;
+}
+
+html {
+    position: relative;
+    min-height: 100vh;
+}
+
+.contenedora {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 4.5em;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    background-color: transparent;
 }
 
 .card {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border: 1px solid #494949;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
@@ -18,8 +36,8 @@ body {
 .card h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    color: black;
-    border-bottom: 1px solid black;
+    color: white;
+    border-bottom: 1px solid white;
     padding-bottom: 5px;
 }
 
@@ -34,9 +52,6 @@ body {
     color: rgba(44, 52, 54);
 }
 
-.footer {
-    background-color: #ced3ff;
-}
 
 button {
     background-color: white;
@@ -51,8 +66,8 @@ button {
 }
 
 .filtro {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
+    background-color: rgba(0, 0, 0, 0.7); 
+    border: 1px solid #494949;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
@@ -68,9 +83,7 @@ button {
 h1 {
     font-size: 50px;
     font-weight: 700;
-    background: linear-gradient(45deg, #7967f1, #00bfff, #ced3ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
     text-align: center;
 }
 
@@ -99,501 +112,269 @@ h1 {
     }
 }
 
-@media (min-width:2300px) {
-    .rutinaActual {
-        position: relative;
-        right: 360px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 330px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 510px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 540px !important;
-    }
-
+@media (min-width:3200px) {
     .imagenLogo {
         position: relative;
-        left: 105px !important;
+        right: 2000px;
+    }
+}
+
+@media (max-width:3200px) and (min-width:2900px) {
+    .imagenLogo {
+        position: relative;
+        right: 1900px;
+    }
+}
+
+@media (max-width:2900px) and (min-width:2700px) {
+    .imagenLogo {
+        position: relative;
+        right: 1700px;
+    }
+}
+
+@media (max-width:2700px) and (min-width:2500px) {
+    .imagenLogo {
+        position: relative;
+        right: 1600px;
+    }
+    
+}
+
+@media (max-width:2500px) and (min-width:2300px) {
+    .imagenLogo {
+        position: relative;
+        right: 1250px;
     }
 }
 
 @media (max-width:2300px) and (min-width:2000px) {
-    .rutinaActual {
-        position: relative;
-        right: 300px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 270px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 430px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 460px !important;
-    }
-
     .imagenLogo {
         position: relative;
-        left: 95px !important;
+        right: 900px;
+    }
+    ul{
+        position: relative;
+        right: 0px;
     }
 }
 
 @media (max-width:2000px) and (min-width:1800px) {
-    .rutinaActual {
-        position: relative;
-        right: 270px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 240px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 390px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 420px !important;
-    }
-
     .imagenLogo {
         position: relative;
-        left: 95px !important;
+        right: 900px;
+    }
+    ul{
+        position: relative;
+        left: 50px;
     }
 }
 
 @media (max-width:1800px) and (min-width:1600px) {
-
-    .rutinaActual {
-        position: relative;
-        right: 200px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 160px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 340px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 370px !important;
-    }
-    .opciones{
-        position: relative;
-        right: 100px!important;
-    }
-
     .imagenLogo {
         position: relative;
-        left:95px !important;
+        right: 800px;
+    }
+
+    .navbar-nav {
+        position: relative;
+        left: 0px;
+        font-size: small;
     }
 }
 
 @media (max-width:1600px) and (min-width:1410px) {
-
-    .rutinaActual {
-        position: relative;
-        right: 150px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 120px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 300px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 320px !important;
-    }
-
     .imagenLogo {
         position: relative;
-        left:95px !important;
+        right: 650px;
     }
-
-    .opciones{
+    ul{
         position: relative;
-        right: 100px!important;
+        left: 80px;
+        font-size: small;
     }
 }
+
 
 @media (max-width:1410px) and (min-width:1310px) {
-
-    .rutinaActual {
-        position: relative;
-        right: 100px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 0px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 230px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 260px !important;
-    }
-
     .imagenLogo {
         position: relative;
-        left:95px !important;
+        right: 550px;
     }
-
-    .opciones{
+    ul{
         position: relative;
-        right: 100px!important;
+        left: 80px;
+        font-size: small;
     }
 }
 
-@media (max-width:1310px) and (min-width:1199px) {
-
-    .rutinaActual {
-        position: relative;
-        right: 80px !important;
-    }
-
-    .visualizarRutinas {
-        position: relative;
-        right: 60px !important;
-    }
-
-    .cerrarSesion {
-        position: relative;
-        left: 180px !important;
-    }
-
-    .options {
-        position: relative;
-        left: 200px !important;
-    }
-
+@media (max-width:1310px) and (min-width:1200px) {
     .imagenLogo {
         position: relative;
-        left:95px !important;
+        right: 450px;
     }
-
-    .opciones{
+    ul{
         position: relative;
-        right: 100px!important;
-    }
-
-}
-
-@media (max-width:1200px) and (min-width:900px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:70px;
-        left: 550px;
-        width: 200px;
-    }
-
-    .options {
-        position: relative;
-        width: 200px;
-        left: 540px;
-        bottom: 85px;
-    }
-
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 200px;
-        width: 200px;
-    }
-
-    .home{
-        display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 200px;
-        width: 200px;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 550px;
-        bottom: 70px!important;
-        width: 200px;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:300px;
-    }
-}
-
-@media (max-width:900px) and (min-width:700px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:70px;
-        left: 450px;
-        width: 200px;
-    }
-
-    .options {
-        position: relative;
-        width: 200px;
-        left: 440px;
-        bottom: 85px;
-    }
-
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 100px;
-        width: 200px;
-    }
-
-    .home{
-        display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 100px;
-        width: 200px;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 450px;
-        bottom: 70px!important;
-        width: 200px;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:300px;
-    }
-}
-
-@media (max-width:700px) and (min-width:570px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:70px;
-        left: 350px;
-        width: 200px;
-    }
-
-    .options {
-        position: relative;
-        width: 200px;
-        left: 340px;
-        bottom: 85px;
-    }
-
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 100px;
-        width: 200px;
-    }
-
-    .home{
-        display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 100px;
-        width: 200px;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 350px;
-        bottom: 70px!important;
-        width: 200px;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:300px;
-    }
-}
-
-@media (max-width:570px) and (min-width:470px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:68px;
-        left: 250px;
-        width: 200px;
-    }
-
-    .options {
-        position: relative;
-        width: 200px;
-        left: 240px;
-        bottom: 85px;
-    }
-
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 100px;
-        width: 200px;
-    }
-
-    .home{
-        display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 100px;
-        width: 200px;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 250px;
-        bottom: 70px!important;
-        width: 200px;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:300px;
-    }
-}
-
-@media (max-width:470px) and (min-width:420px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:70px;
-        left: 200px;
-        width: 200px;
-    }
-
-    .options {
-        position: relative;
-        width: 200px;
-        left: 190px;
-        bottom: 85px;
-    }
-
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 50px;
-        width: 200px;
-    }
-
-    .home{
-        display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 50px;
-        width: 200px;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 200px;
-        bottom: 70px!important;
-        width: 200px;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:300px;
-    }
-}
-
-@media (max-width:420px) and (min-width:320px) {
-    .cerrarSesion {
-        position: relative;
-        bottom:48px;
-        left: 160px;
-        width: 200px;
+        left: 60px;
         font-size: small;
     }
 
-    .options {
-        position: relative;
-        width: 200px;
-        left: 150px;
-        bottom: 65px;
-    }
+}
 
-    .rutinaActual {
-        position: relative;
-        top:39px !important;
-        left: 50px;
-        width: 200px;
-        font-size: small;
-    }
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba(255, 255, 255, 1)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
 
+@media (max-width:1200px) {
+    .imagenLogo {
+        display: none;
+    }
     .home{
         display: inline!important;
-        position: relative;
-        top:23px !important;
-        left: 50px;
-        width: 200px;
-        font-size: small;
-    }
-    .visualizarRutinas {
-        position: relative;
-        left: 160px;
-        bottom: 45px!important;
-        width: 200px;
-        font-size: small;
-    }
-    .imagenLogo{
-        display: none;
-    }
-    .navbar{
-        max-height:250px;
-    }
-    select{
-        width: 100px;
-    }
-    .opciones{
-        font-size: small;
-    }
-    .navbar{
-        max-height:300px;
     }
 }
 
-@media (max-width:320px){
-   .imagenLogo{
-        display: none;
-    } 
-}
-
-
-@media (min-width:1200px){
-    .imagenLogo{
+@media (min-width:1200px) {
+    .imagenLogo {
         max-width: 100px;
-        position: relative;
-        left: 30px;
     }
+
+    .contenedora {
+        position: relative;
+        min-height: 100vh;
+        padding-bottom: 6.5em;
+    }
+}
+
+.opciones {
+    width: 120px;
+    position: relative;
+    right: 120px;
+}
+
+.config {
+    width: 50%;
+}
+
+/*Pequeno*/
+
+@media (max-width:1200px) and (min-width:1140px) {
+    .config{
+        position: relative;
+        right: 270px;
+    }
+    .opciones{
+       position: relative;
+        right: 520px; 
+    }
+
+}
+
+@media (max-width:1140px) and (min-width:1040px) {
+    .config{
+        position: relative;
+        right: 240px;
+    }
+    .opciones{
+       position: relative;
+        right: 470px; 
+    }
+
+}
+
+@media (max-width:1040px) and (min-width:940px) {
+    .config{
+        position: relative;
+        right: 220px;
+    }
+    .opciones{
+       position: relative;
+        right: 420px; 
+    }
+
+}
+
+@media (max-width:940px) and (min-width:840px) {
+    .config{
+        position: relative;
+        right: 200px;
+    }
+    .opciones{
+       position: relative;
+        right: 380px; 
+    }
+
+}
+
+@media (max-width:840px) and (min-width:740px) {
+    .config{
+        position: relative;
+        right: 180px;
+    }
+    .opciones{
+       position: relative;
+        
+    }
+
+}
+
+@media (max-width:840px) and (min-width:740px) {
+    .config{
+        position: relative;
+        right: 170px;
+    }
+    .opciones{
+       position: relative;
+        right:320px; 
+    }
+
+}
+
+@media (max-width:740px) and (min-width:640px) {
+    .config{
+        position: relative;
+        right: 140px;
+    }
+    .opciones{
+       position: relative;
+        right: 250px; 
+    }
+
+}
+
+@media (max-width:640px) and (min-width:540px) {
+    .config{
+        position: relative;
+        right: 120px;
+    }
+    .opciones{
+       position: relative;
+        right: 210px; 
+    }
+
+}
+
+@media (max-width:540px) and (min-width:440px) {
+    .config{
+        position: relative;
+        right: 90px;
+    }
+    .opciones{
+       position: relative;
+        right: 160px; 
+    }
+
+}
+
+@media (max-width:440px) and (min-width:320px) {
+    .config{
+        position: relative;
+        right: 70px;
+    }
+    .opciones{
+       position: relative;
+        right: 110px; 
+        width: 120px;
+    }
+
 }

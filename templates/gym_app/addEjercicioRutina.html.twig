@@ -9,27 +9,46 @@
 	AddEjRutina
 {% endblock %}
 {% block body %}
-	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;border:solid 1px grey;border-right:0px;border-top:0px;border-left:0px;background-color:#ced3ff;min-height:130px;">
+<style>
+	@media (min-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoOscuro.jpg'); 
+			background-size: cover; 
+			background-position: center; 
+			background-repeat: no-repeat;
+		}
+	}
+	@media (max-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoPrueba.jpg'); 
+			background-size: cover; 
+			background-position: center; 
+			background-repeat: no-repeat;
+		}
+	}
+</style>
+<div class="contenedora">
+	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;min-height:130px;">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 				<ul class="navbar-nav align-items-xl-center">
-					<li class="nav-item home" style="display:none;">
-						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:black;font-weight:bold;">Home</a>
-					</li>
-					<li class="nav-item rutinaActual">
-						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:black;font-weight:bold;">Rutina actual</a>
-					</li>
-					<li class="nav-item visualizarRutinas">
-						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:black;font-weight:bold;">Visualizar Rutinas</a>
-					</li>
 					<li class="nav-item logoCentral">
 						<a class="nav-link text-xl-start text-sm-center linkLogo" href="{{ path('app_gym',{userName:userName}) }}"><img class="imagenLogo" src="/img/logoFinal.png"></img></a>
 					</li>
+					<li class="nav-item home" style="display:none;">
+						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:white;font-weight:bold;">Home</a>
+					</li>
+					<li class="nav-item rutinaActual">
+						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:white;font-weight:bold;">Rutina actual</a>
+					</li>
+					<li class="nav-item visualizarRutinas">
+						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:white;font-weight:bold;">Visualizar Rutinas</a>
+					</li>
 					<li class="nav-item cerrarSesion">
-						<a class="nav-link" href="{{ path('logout') }}" style="color:black;font-weight:bold;">Cerrar sesión</a>
+						<a class="nav-link" href="{{ path('logout') }}" style="color:white;font-weight:bold;">Cerrar sesión</a>
 					</li>
 					<li class="nav-item options">
 						<div class=" pt-2">
@@ -54,44 +73,45 @@
 				<img src="/img/{{ejercicio.maquina.imagen}}" class="col-8" style="margin-top:6%;border-radius:5px;">
 			</div>
 			<div class="col-6 text-center">
-				<h5 style="color:black;margin-top:10px;margin-bottom:5%;text-align:left;">{{ejercicio.nombreEjercicio}}</h1>
+				<h5 style="color:white;margin-top:10px;margin-bottom:5%;text-align:left;">{{ejercicio.nombreEjercicio}}</h1>
 				<div class="container">
 					{{ form_start(form, {'attr': {'class': 'formAdd'}}) }}
 					<div>
 						{{ form_widget(form.peso, {'attr': {'placeholder': 'Peso(kg)'}}) }}
-						<span style="font-weight:bold">{{ultimoPeso}}</span>
-						<span>
-							(Última sesión)</span>
+						<span style="font-weight:bold;color:white;">{{ultimoPeso}}</span>
+						<span style="color:white;">
+							kg (Última sesión)</span>
 					</div>
 					<div>
 						{{ form_widget(form.series, {'attr': {'placeholder': 'Series'}}) }}
-						<span style="font-weight:bold">{{ultimasSeries}}</span>
-						<span>
-							(Última sesión)</span>
+						<span style="font-weight:bold;color:white;">{{ultimasSeries}}</span>
+						<span style="color:white;">
+						(Última sesión)</span>
 					</div>
 					<div>
 						{{ form_widget(form.repSerie, {'attr': {'placeholder': 'Repeticiones por serie'}}) }}
-						<span style="font-weight:bold">{{ultimasRepes}}</span>
-						<span>
+						<span style="font-weight:bold;color:white;">{{ultimasRepes}}</span>
+						<span style="color:white;">
 							(Última sesión)</span>
-					</div>
-					{{ form_end(form) }}
 				</div>
-			</section>
-		</div>
+					{{ form_end(form) }}
+			</div>
+		</section>
+	</div>
 
-		<div class="footer" style="position:fixed;bottom:0;width:100%;margin-top:20px;">
+		<div class="footer">
 			<div class="row">
 				<div class="row pt-2 pb-2 justify-content-center">
 					<div class="col-3 text-center">
-						<a href=""><img src="/img/instagram.png" class="col-3" style="max-width:50px"></a>
+						<a href=""><img src="/img/instagramF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 					</div>
-					<div class="col-3 text-center"></div>
 					<div class="col-3 text-center">
-						<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitter.png" class="col-3" style="max-width:50px"></a>
+					</div>
+					<div class="col-3 text-center">
+						<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitterF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	{% endblock %}
+</div>
+{% endblock %}

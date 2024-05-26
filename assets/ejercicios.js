@@ -41,22 +41,6 @@ if (btnOpciones == null) {
     configuracion.setAttribute("hidden", true);
 }
 
-
-//Visualizar footer
-
-var footer = document.querySelector('.footer');
-if (document.body.offsetHeight > window.innerHeight) {
-    window.addEventListener('scroll', function () {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            footer.style.display = 'block'; // Muestra el footer cuando el usuario llega al final de la página
-        } else {
-            footer.style.display = 'none'; // Oculta el footer si no está al final de la página
-        }
-    });
-} else {
-    footer.style.display = 'block';
-}
-
 //Ampliar cartas
 
 function getCardElement(target) {
@@ -91,12 +75,12 @@ document.body.addEventListener("mouseout", (e) => {
 
 document.body.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("enlace")) {
-        e.target.style.color = "#9ea7f9";
+        e.target.style.color = "orange";
     }
 });
 
 document.body.addEventListener("mouseout", (e) => {
     if (e.target.classList.contains("enlace")) {
-        e.target.style.color = "black";
+        e.target.style.color = "white";
     }
 });

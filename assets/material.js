@@ -29,14 +29,14 @@ if (btnOpciones == null) {
 
 //Animación botones
 
-document.body.addEventListener("mouseover", (e) => { 
-    if (e.target.tagName == "BUTTON" && e.target.className!="config") {
-        e.target.style.backgroundColor = "#ced3ff";
-    } 
-})
+document.body.addEventListener("mouseover", (e) => {
+    if (e.target.tagName == "BUTTON" && e.target.className != "config" && e.target.classList.contains("navbar-toggler") != true) {
+        e.target.style.backgroundColor = "orange";
+    }
+});
 
-document.body.addEventListener("mouseout", (e) => {  
-    if (e.target.tagName == "BUTTON" && e.target.className!="config" && e.target.className!="navbar-toggler") {
+document.body.addEventListener("mouseout", (e) => {
+    if (e.target.tagName == "BUTTON" && e.target.className != "config" && e.target.classList.contains("navbar-toggler") != true) {
         e.target.style.backgroundColor = "white";
-    } 
-})
+    }
+});

@@ -9,27 +9,46 @@
 	{{ encore_entry_script_tags('usuarios') }}
 {% endblock %}
 {% block body %}
-	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;border:solid 1px grey;border-right:0px;border-top:0px;border-left:0px;background-color:#ced3ff;min-height:130px;">
+<style>
+	@media (min-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoOscuro.jpg'); 
+			background-size: cover; 
+			background-position: center; 
+			background-repeat: no-repeat;
+		}
+	}
+	@media (max-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoPrueba.jpg'); 
+			background-size: cover; 
+			background-position: center; 
+			background-repeat: no-repeat;
+		}
+	}
+</style>
+<div class="contenedora">
+	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;min-height:130px;">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 				<ul class="navbar-nav align-items-xl-center">
-					<li class="nav-item home" style="display:none;">
-						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:black;font-weight:bold;">Home</a>
-					</li>
-					<li class="nav-item rutinaActual">
-						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:black;font-weight:bold;">Rutina actual</a>
-					</li>
-					<li class="nav-item visualizarRutinas">
-						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:black;font-weight:bold;">Visualizar Rutinas</a>
-					</li>
 					<li class="nav-item logoCentral">
 						<a class="nav-link text-xl-start text-sm-center linkLogo" href="{{ path('app_gym',{userName:userName}) }}"><img class="imagenLogo" src="/img/logoFinal.png"></img></a>
 					</li>
+					<li class="nav-item home" style="display:none;">
+						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:white;font-weight:bold;">Home</a>
+					</li>
+					<li class="nav-item rutinaActual">
+						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:white;font-weight:bold;">Rutina actual</a>
+					</li>
+					<li class="nav-item visualizarRutinas">
+						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:white;font-weight:bold;">Visualizar Rutinas</a>
+					</li>
 					<li class="nav-item cerrarSesion">
-						<a class="nav-link" href="{{ path('logout') }}" style="color:black;font-weight:bold;">Cerrar sesión</a>
+						<a class="nav-link" href="{{ path('logout') }}" style="color:white;font-weight:bold;">Cerrar sesión</a>
 					</li>
 					<li class="nav-item options">
 						<div class=" pt-2">
@@ -64,9 +83,9 @@
 		<div class="row justify-content-center" style="margin-top:50px">
 			<div class="formulario col-md-6 col-12">
 				<div>
-					<h2>Borrar Usuario</h2>
+					<h2 style="color:white;">Borrar Usuario</h2>
 					{{ form_start(form1) }}
-					<div>
+					<div style="color:white;">
 						{{ form_label(form1.email, 'Introduce el email del usuario a borrar') }}
 						{{ form_widget(form1.email) }}
 					</div>
@@ -76,17 +95,17 @@
 
 			<div class="formulario col-md-6 col-12">
 				<div>
-					<h2>Modificar Usuario</h2>
+					<h2 style="color:white;">Modificar Usuario</h2>
 					{{ form_start(form2) }}
-					<div>
+					<div style="color:white;">
 						{{ form_label(form2.email, 'Introduce el email del usuario a añadir') }}
 						{{ form_widget(form2.email) }}
 					</div>
-					<div>
+					<div style="color:white;">
 						{{ form_label(form2.roles, 'Introduce el rol') }}
 						{{ form_widget(form2.roles) }}
 					</div>
-					<div>
+					<div style="color:white;">
 						{{ form_label(form2.password, 'Introduce la nueva contraseña') }}
 						{{ form_widget(form2.password) }}
 					</div>
@@ -96,18 +115,19 @@
 		</div>
 	</div>
 
-	<div class="footer" style="position:fixed;bottom:0;width:100%;margin-top:20px;">
+	<div class="footer">
 		<div class="row">
 			<div class="row pt-2 pb-2 justify-content-center">
 				<div class="col-3 text-center">
-					<a href=""><img src="/img/instagram.png" class="col-3" style="max-width:50px"></a>
+					<a href=""><img src="/img/instagramF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 				</div>
 				<div class="col-3 text-center">
 				</div>
 				<div class="col-3 text-center">
-					<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitter.png" class="col-3" style="max-width:50px"></a>
+					<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitterF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 {% endblock %}

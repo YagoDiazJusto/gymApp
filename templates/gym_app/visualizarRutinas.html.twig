@@ -10,31 +10,53 @@
 {% endblock %}
 
 {% block body %}
-	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;border:solid 1px grey;border-right:0px;border-top:0px;border-left:0px;background-color:#ced3ff;min-height:130px;">
+<style>
+	@media (min-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoOscuro.jpg'); 
+			background-position: center; 
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+	@media (max-width:800px){
+		.contenedora{
+			background-image: url('/img/fondoPrueba.jpg'); 
+			background-position: center; 
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+</style>
+
+<div class="contenedora">
+	<nav class="navbar navbar-expand-xl" style="padding:10px;font-size:20px;min-height:130px;">
 		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="width:56px;">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 				<ul class="navbar-nav align-items-xl-center">
-					<li class="nav-item home" style="display:none;">
-						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:black;font-weight:bold;">Home</a>
-					</li>
-					<li class="nav-item rutinaActual">
-						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:black;font-weight:bold;">Rutina actual</a>
-					</li>
-					<li class="nav-item visualizarRutinas">
-						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:black;font-weight:bold;">Visualizar Rutinas</a>
-					</li>
 					<li class="nav-item logoCentral">
 						<a class="nav-link text-xl-start text-sm-center linkLogo" href="{{ path('app_gym',{userName:userName}) }}"><img class="imagenLogo" src="/img/logoFinal.png"></img></a>
 					</li>
+					<li class="nav-item home" style="display:none;">
+						<a class="nav-link" href="{{ path('app_gym',{userName:userName}) }}" style="color:white;font-weight:bold;">Home</a>
+					</li>
+					<li class="nav-item rutinaActual">
+						<a class="nav-link" href="{{ path('mostrarRutinaActual',{userName:userName}) }}" style="color:white;font-weight:bold;">Rutina actual</a>
+					</li>
+					<li class="nav-item visualizarRutinas">
+						<a class="nav-link" href="{{ path('visualizarRutinas',{userName:userName}) }}" style="color:white;font-weight:bold;">Visualizar Rutinas</a>
+					</li>
 					<li class="nav-item cerrarSesion">
-						<a class="nav-link" href="{{ path('logout') }}" style="color:black;font-weight:bold;">Cerrar sesión</a>
+						<a class="nav-link" href="{{ path('logout') }}" style="color:white;font-weight:bold;">Cerrar sesión</a>
 					</li>
 					<li class="nav-item options">
 						<div class=" pt-2">
-							<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="background-color:transparent;border:0px" hidden>⚙️</button>
+							<button class="config" id="{{ isAdmin ? 'admin' : 'not_admin' }}" style="border:0px;background-color:transparent!important;" hidden>⚙️</button>
 							<select onchange="window.location.href=this.value;" class="opciones" style="border:solid 1px black;visibility:hidden;" >
 								<option>Seleccione...</option>
 								<option value="{{ path('administrarUsuarios',{userName:userName}) }}">Actualizar usuarios</option>
@@ -51,7 +73,7 @@
 
 
 	<div class="container">
-		<h1 style="color: black;margin-top:20px;margin-bottom:20px;">Historial de rutinas</h1>
+		<h1 style="color: white;margin-top:20px;margin-bottom:20px;">Historial de rutinas</h1>
 		<script>
 			//Obtener date picker
 			$(document).ready(function(){
@@ -162,27 +184,27 @@
 		</div>
 		{% set num = 0 %}
 		{% for d in detallesRutina %}
-			<h2 class="date text-center" style="color: black; border-bottom: solid 1px #00008B; margin-bottom: 25px">{{ rutinas[num].fechaCreacion|date("d-m-Y") }}</h2>
+			<h2 class="date text-center" style="color: white; border-bottom: solid 1px white; margin-bottom: 25px">{{ rutinas[num].fechaCreacion|date("d-m-Y") }}</h2>
 			<div class="row dias">
 				{% for d2 in d %}
 					<div class="col-6 col-lg-4 ">
 						<div class="card">
-							<h3>{{ d2.ejercicio.nombreEjercicio }}</h3>
-							<p>{{ d2.ejercicio.descripcion }}</p>
-							<p>
-								<span style="font-weight:bold">Maquina:</span>
+							<h3 style="color:white;">{{ d2.ejercicio.nombreEjercicio }}</h3>
+							<p style="color:white;">{{ d2.ejercicio.descripcion }}</p>
+							<p style="color:white;">
+								<span style="font-weight:bold;color:white;">Maquina:</span>
 								<span class="ma">{{ d2.ejercicio.maquina.nombre }}</span></p>
-							<p>
-								<span style="font-weight:bold">Grupo Muscular:</span>
+							<p style="color:white;">
+								<span style="font-weight:bold;color:white;">Grupo Muscular:</span>
 								<span class="mu">{{ d2.ejercicio.grupoMuscular.nombre }}</span></p>
-							<p>
-								<span style="font-weight:bold">Peso:</span>
+							<p style="color:white;">
+								<span style="font-weight:bold;color:white;">Peso:</span>
 								{{ d2.peso }}</p>
-							<p>
-								<span style="font-weight:bold">Series:</span>
+							<p style="color:white;">
+								<span style="font-weight:bold;color:white;">Series:</span>
 								{{ d2.series }}</p>
-							<p>
-								<span style="font-weight:bold">Repeticiones por Serie:</span>
+							<p style="color:white;">
+								<span style="font-weight:bold;color:white;">Repeticiones por Serie:</span>
 								{{ d2.repeticionesPorSerie }}</p>
 						</div>
 					</div>
@@ -192,19 +214,19 @@
 		{% endfor %}
 	</div>
 
-	<div class="footer" style="position:fixed;bottom:0;width:100%;margin-top:20px;">
+	<div class="footer">
 		<div class="row">
 			<div class="row pt-2 pb-2 justify-content-center">
 				<div class="col-3 text-center">
-					<a href=""><img src="/img/instagram.png" class="col-3" style="max-width:50px"></a>
+					<a href=""><img src="/img/instagramF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 				</div>
 				<div class="col-3 text-center">
 				</div>
 				<div class="col-3 text-center">
-					<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitter.png" class="col-3" style="max-width:50px"></a>
+					<a href="https://x.com/gymWorkoutSpain"><img src="/img/twitterF.png" class="col-3" style="max-width:50px;min-width:40px;"></a>
 				</div>
 			</div>
 		</div>
 	</div>
-
+</div>
 {% endblock %}

@@ -70,14 +70,14 @@ document.querySelector('.finalizarRutina').addEventListener('click', function ()
 //Animación botones
 
 document.body.addEventListener("mouseover", (e) => {
-    if (e.target.tagName == "BUTTON" && e.target.className != "config") {
-        e.target.style.backgroundColor = "#ced3ff";
+    if (e.target.tagName == "BUTTON" && e.target.className != "config" && e.target.classList.contains("navbar-toggler") != true) {
+        e.target.style.backgroundColor = "orange";
     }
 });
 
 document.body.addEventListener("mouseout", (e) => {
-    if (e.target.tagName == "BUTTON") {
-        e.target.style.backgroundColor = "transparent";
+    if (e.target.tagName == "BUTTON" && e.target.className != "config" && e.target.classList.contains("navbar-toggler") != true) {
+        e.target.style.backgroundColor = "white";
     }
 });
 
