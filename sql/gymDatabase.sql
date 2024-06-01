@@ -223,7 +223,7 @@ INSERT INTO `maquina` (`id`, `nombre`, `marca`, `imagen`) VALUES
 (25, 'Curl de bíceps con mancuernas', 'ProGym', 'curlBicepsMancuerna.jpg'),
 (26, 'Extensión de tríceps con mancuernas', 'ProGym', 'extensionTricepsMancuerna.jpg'),
 (27, 'Elevaciones laterales con mancuernas', 'ProGym', 'lateralesMancuerna.jpg'),
-(28, 'Máquina abdominales', 'TechnoGym', 'abdominales.jpg'),
+(28, 'Máquina abdominales', 'TechnoGym', 'abdominales.png'),
 (29, 'Barra Sentadilla', 'Force USA', 'sentadilla.jpg'),
 (30, 'Barra Peso Muerto', 'TechnoGym', 'pesoMuerto.jpg'),
 (32, 'Elevaciones frontales con mancuernas', '.', 'hombroAnterior.webp'),
