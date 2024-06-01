@@ -11,7 +11,7 @@
     border-top: solid 0px ;
     border-left:solid 0px ;
     border-right:solid 0px ;
-    border-bottom: solid 0.2px rgb(251, 183, 55);
+    border-bottom: solid 0.2px rgb(251, 183, 55)!important;
 }
 .password{
     background-color: transparent;
@@ -21,7 +21,7 @@
     border-bottom: solid 0.2px rgb(255, 255, 255);
 }
 .buttonLogin{
-    background-color: rgb(251, 183, 55);
+    background-color: rgb(251, 183, 55)!important;
     border-radius: 5px;
     border: 0px;
 }
