@@ -13,7 +13,7 @@ services:
       - symfony_network
 
   mariadb:
-    image: mariadb2:latest
+    image: mariadb:latest
     container_name: mariadb
     restart: unless-stopped
     environment:
@@ -42,7 +42,7 @@ services:
       - symfony_network
 
 volumes:
-  mariadb_data2:
+  mariadb_data:
 
 networks:
   symfony_network:
