@@ -169,6 +169,12 @@ h1{
     }
 }
 
+@media (max-width:500px){
+    h1{
+        margin-top: 120px!important;
+    }
+}
+
 .opciones {
     width: 120px;
 }

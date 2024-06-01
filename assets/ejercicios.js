@@ -75,12 +75,12 @@ document.body.addEventListener("mouseout", (e) => {
 
 document.body.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("enlace")) {
-        e.target.style.color = "orange";
+        e.target.style.borderBottom = "solid 2px white";
     }
 });
 
 document.body.addEventListener("mouseout", (e) => {
     if (e.target.classList.contains("enlace")) {
-        e.target.style.color = "white";
+        e.target.style.borderBottom = "";
     }
 });

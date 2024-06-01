@@ -170,6 +170,12 @@ h1{
     }
 }
 
+@media (max-width:500px){
+    .card{
+        margin-top: 150px!important;
+    }
+}
+
 .opciones {
     width: 120px;
 }
