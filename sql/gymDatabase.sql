@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-05-2024 a las 19:01:09
+-- Tiempo de generación: 01-06-2024 a las 18:50:09
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -147,7 +147,10 @@ INSERT INTO `ejercicio` (`id`, `maquina_id`, `grupo_muscular_id`, `nombre_ejerci
 (21, 29, 4, 'Sentadila', 'Ejercicio que consiste en flexionar las piernas bajando el cuerpo recto hasta quedar en cuclillas.'),
 (22, 30, 3, 'Peso muerto', 'La técnica peso muerto trabaja un gran número de grupos musculares. Entre ellos los del área inferior de la espalda e isquiotibiales, tonificando glúteos, gemelos y cúadriceps así como en el área superior de la espalda y los brazos además de los trapecios'),
 (23, 21, 2, 'Flexiones', 'Ejercicio físico realizado estando en posición inclinada, recostado hacia abajo, levantando el cuerpo únicamente con los brazos y bajando de nuevo al suelo.'),
-(24, 28, 7, 'Abdominales', 'Consisten en pasar de una posición tumbada a una sentada al llevar el pecho hacia los muslos. Este movimiento lo podemos realizar especialmente gracias al músculo recto abdominal.');
+(24, 28, 7, 'Abdominales', 'Consisten en pasar de una posición tumbada a una sentada al llevar el pecho hacia los muslos. Este movimiento lo podemos realizar especialmente gracias al músculo recto abdominal.'),
+(27, 32, 1, 'Elevaciones frontales con mancuenas', 'La elevación frontal es el mejor ejercicio para desarrollar la parte frontal del hombro, las elevaciones frontales se pueden realizar tanto de forma unilateral como bilateral.'),
+(28, 33, 1, 'Hombro posterior', 'Este ejercicio es excelente para trabajar los deltoides posteriores, pero también activa otros músculos de la parte superior de la espalda.'),
+(29, 34, 1, 'Face pull con polea', 'Este ejercicio te permite fortalecer el hombro y la espalda, trabaja los siguiente músculos:deltoides posterior y lateral, el bíceps, el trapecio medio y bajo.');
 
 -- --------------------------------------------------------
 
@@ -222,7 +225,10 @@ INSERT INTO `maquina` (`id`, `nombre`, `marca`, `imagen`) VALUES
 (27, 'Elevaciones laterales con mancuernas', 'ProGym', 'lateralesMancuerna.jpg'),
 (28, 'Máquina abdominales', 'TechnoGym', 'abdominales.jpg'),
 (29, 'Barra Sentadilla', 'Force USA', 'sentadilla.jpg'),
-(30, 'Barra Peso Muerto', 'TechnoGym', 'pesoMuerto.jpg');
+(30, 'Barra Peso Muerto', 'TechnoGym', 'pesoMuerto.jpg'),
+(32, 'Elevaciones frontales con mancuernas', '.', 'hombroAnterior.webp'),
+(33, 'Máquina hombro posterior', 'Panatta', 'hombroPosterior.jpg'),
+(34, 'Face pull con polea', 'ProGym', 'facePull.jpeg');
 
 -- --------------------------------------------------------
 
@@ -275,7 +281,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 (1, 'yago@gmail.com', '[\"ROLE_USER\",\"ROLE_ADMIN\"]', '$2y$13$pNqFkNsubZShnN91fdMpcOhr0WgAW6XqQeIzzoTo/zNyNzOWuPWTW'),
 (5, 'rudi@gmail.com', '[\"ROLE_USER\"]', '$2y$13$DHi/3Nrg0a3SyH7/g/ZqU.Q.wOBq5BA0D.cuKfhvDjpAu/tnSBc2a'),
-(6, 'yago2@gmail.com', '[\"ROLE_USER\"]', '$2y$13$r6YZXV1yLyzB2bW5CQ2hP.HlcSdswZVQgORBbLqkofzOn5CZ1QZum');
+(6, 'yago2@gmail.com', '[\"ROLE_USER\"]', '$2y$13$r6YZXV1yLyzB2bW5CQ2hP.HlcSdswZVQgORBbLqkofzOn5CZ1QZum'),
+(7, 'julio@gmail.com', '[\"ROLE_USER\"]', '$2y$13$lNV1n4zuCCLmb.nsR4Opd.KI6rxjdWD23empt4TgE5Zh6wlC4LFV2');
 
 --
 -- Índices para tablas volcadas
@@ -343,7 +350,7 @@ ALTER TABLE `detalle_rutina`
 -- AUTO_INCREMENT de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo_muscular`
@@ -355,7 +362,7 @@ ALTER TABLE `grupo_muscular`
 -- AUTO_INCREMENT de la tabla `maquina`
 --
 ALTER TABLE `maquina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `rutina`
@@ -367,7 +374,7 @@ ALTER TABLE `rutina`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
