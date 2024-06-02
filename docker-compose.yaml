@@ -17,7 +17,7 @@ services:
     container_name: mariadb
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 'abc123'
+      MYSQL_ROOT_PASSWORD: 'abc123.'
       MYSQL_DATABASE: 'gymDatabase'
       MYSQL_USER: 'usuario'
       MYSQL_PASSWORD: 'abc123.'

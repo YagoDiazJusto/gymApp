@@ -81,6 +81,6 @@ document.body.addEventListener("mouseover", (e) => {
 
 document.body.addEventListener("mouseout", (e) => {
     if (e.target.classList.contains("enlace")) {
-        e.target.style.borderBottom = "";
+        e.target.style.borderBottom = "0px";
     }
 });
