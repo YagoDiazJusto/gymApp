@@ -248,7 +248,8 @@ class GymAppController extends AbstractController
         $form1->handleRequest($request);
         if ($form1->isSubmitted() && $form1->isValid() && $form1->get('deleteBtn')->isClicked()) {
             $data = implode(",", $form1->getData());
-            if ($data != null) {
+            $existingUser = $userRepository->findOneBy(['email' => $data]);
+            if ($existingUser != null) {
                 //Borro el usuario introducido, las rutinas asociadas a ese usuario y los detalles rutinas también
                 $usuario = $userRepository->getUserByEmail($data);
                 $rutinas = $rutinaRepository->findByUser($usuario);
