@@ -2,17 +2,14 @@ import './styles/rutinaActual.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 //Puenteado de las sesiones de symfony con js
 let btnfinalizarRutina = document.querySelector(".finalizarRutina");
-console.log(btnfinalizarRutina);
 btnfinalizarRutina.addEventListener("click", (e) => {
     if (e.target.className == "finalizarRutina") {
-        console.log("ab");
-
         const sessionData = {
             formValue: false,
             RutinaActual: ''
         };
 
-        fetch('http://localhost:8000/actualizar-datos-sesion', {
+        fetch('http://gym-routine.giize.com:80/actualizar-datos-sesion', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,10 +39,10 @@ configuracion.addEventListener("click", (e) => {
     if (e.target.className == "config") {
         if (oculto == true) {
             oculto = false;
-            opciones.style.visibility="visible";
+            opciones.style.visibility = "visible";
         } else {
             oculto = true;
-            opciones.style.visibility="hidden";
+            opciones.style.visibility = "hidden";
         }
 
     }
