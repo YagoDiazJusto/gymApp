@@ -65,21 +65,37 @@
 
 <div class="container">
 	<h1 style="color: white;margin-top:20px;margin-bottom:20px;">Historial de rutinas</h1>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
 	<script>
 		// Obtener date picker
 $(document).ready(function () {
-$("#datepicker").datepicker({});
-// Filtra por fecha
-// Obtener la fecha cuando se hace clic en un botón
+$('#datepicker').daterangepicker({
+locale: {
+format: 'DD/MM/YYYY'
+}
+});
+
 $("#get-date").click(function () {
-let selectedDate = $("#datepicker").datepicker("getDate");
+let dateRange = $('#datepicker').data('daterangepicker');
+let startDate = dateRange.startDate;
+let endDate = dateRange.endDate;
 let maquinas = $(".maquinas option:selected").text();
 let musculos = $(".musculos option:selected").text();
-if (selectedDate != null) {
-let formattedDate = $.datepicker.formatDate("dd-mm-yy", selectedDate);
+
+if (startDate != null && endDate != null) {
+let formattedStartDate = startDate.format('DD/MM/YYYY');
+let formattedEndDate = endDate.format('DD/MM/YYYY');
+
 $(".date").each((index, e) => {
 let row = $(".row").eq(index);
-if ($(e).text() != formattedDate) {
+let date = $(e).text();
+let momentDate = moment(date, 'DD/MM/YYYY');
+
+if (momentDate.isBefore(startDate) || momentDate.isAfter(endDate)) {
 row.css("display", "none");
 $(e).css("display", "none");
 } else {
@@ -88,7 +104,7 @@ $(e).css("display", "");
 }
 });
 } else {
-alert("No se ha seleccionado ninguna fecha.");
+alert("No se ha seleccionado ningún rango de fechas.");
 }
 });
 // Filtra por múculo

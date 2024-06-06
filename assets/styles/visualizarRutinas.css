@@ -9,7 +9,6 @@ html {
     position: relative;
     min-height: 100vh;
 }
-
 .contenedora {
     position: relative;
     min-height: 100vh;
@@ -47,6 +46,7 @@ html {
 
 .opciones {
     border: 1px solid #ccc;
+    width: 140px!important;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     color: rgba(44, 52, 54);
@@ -78,7 +78,11 @@ button {
     position: relative;
     right: 59px;
 }
-
+.applyBtn{
+    background-color: white;
+    color: black;
+    border: 0px;
+}
 
 h1 {
     font-size: 50px;
