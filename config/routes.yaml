@@ -8,8 +8,10 @@ obtener_datos_sesion:
     path: '/obtener-datos-sesion'
     controller: 'App\Controller\GymAppController::obtenerDatosSesion'
     methods: ['GET']
+    host: gym-routine.giize.com
     
 actualizar_datos_sesion:
     path: '/actualizar-datos-sesion'
     controller: 'App\Controller\GymAppController::actualizarDatosSesion'
     methods: ['POST']
+    host: gym-routine.giize.com

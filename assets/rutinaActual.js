@@ -9,7 +9,7 @@ btnfinalizarRutina.addEventListener("click", (e) => {
             RutinaActual: ''
         };
 
-        fetch('http://gym-routine.giize.com:80/actualizar-datos-sesion', {
+        fetch('/actualizar-datos-sesion', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
