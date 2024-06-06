@@ -11,6 +11,11 @@
 			<div class="login-form mt-4 p-4">
 				<form method="post" class="row g-3 justify-content-center">
 					<img class="logo" src="./img/gymLogo.jpg"></img>
+					{% if app.session.get('authentication_error') %}
+					<div class="alert alert-danger" role="alert">
+						{{ app.session.get('authentication_error') }}
+					</div>
+					{% endif %}
 					<h1 class="mb-3 font-weight-normal text-center text-white">Bienvenido!</h1>
 					<div class="col-12 text-center ">
 						<input type="email" class="email col-8" name="email" id="inputEmail" required autofocus placeholder="Email">
