@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
     npm
-    
+
 # Instalar extensiones de PHP
 RUN docker-php-ext-install pdo pdo_mysql zip intl mbstring xml
 
@@ -29,6 +29,8 @@ COPY . .
 # Instalar dependencias de Composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --ignore-platform-reqs --no-interaction
+
+RUN npm run build
 
 # Cambiar permisos para el almacenamiento de caché y logs
 RUN chown -R www-data:www-data /var/www/symfony/var
