@@ -10,8 +10,10 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    curl
-
+    curl \
+    nodejs \
+    npm
+    
 # Instalar extensiones de PHP
 RUN docker-php-ext-install pdo pdo_mysql zip intl mbstring xml
 

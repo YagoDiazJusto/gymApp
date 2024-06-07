@@ -61,10 +61,6 @@ Encore
         config.corejs = '3.23';
     })
 
-    .configureDevServerOptions(options => {
-        options.client.host = 'gym-routine.giize.com';
-    })
-
 
     // enables Sass/SCSS support
     //.enableSassLoader()
