@@ -2,10 +2,8 @@ import './styles/rutinaActual.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 //Puenteado de las sesiones de symfony con js
 let btnfinalizarRutina = document.querySelector(".finalizarRutina");
-console.log(btnfinalizarRutina);
 btnfinalizarRutina.addEventListener("click", (e) => {
     if (e.target.className == "finalizarRutina") {
-        console.log("ab");
 
         const sessionData = {
             formValue: false,

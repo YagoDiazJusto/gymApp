@@ -89,7 +89,7 @@ class GymAppController extends AbstractController
         }
         $ejercicio = $ejercicioRepository->getEjercicioByName($nombre);
 
-        //Sacar última información sobre ejrcicio
+        //Sacar última información sobre ejercicio
 
         $ejercicios = $detalleRutinaRepository->findExercises($ejercicio);
         $ultimoPeso = 0;
@@ -505,7 +505,6 @@ class GymAppController extends AbstractController
         $requestData = json_decode($request->getContent(), true);
 
         $session = $request->getSession();
-        dd($session);
 
         foreach ($requestData as $key => $value) {
             $session->set($key, $value);
