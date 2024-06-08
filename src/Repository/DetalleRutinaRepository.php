@@ -38,7 +38,7 @@ class DetalleRutinaRepository extends ServiceEntityRepository
             ->setParameter('ejercicio', $ejercicio)
             ->getQuery()
             ->getResult();
-        return array_reverse($exercises);
+        return array($exercises);
     }
 
     public function remove(DetalleRutina $detalle): void

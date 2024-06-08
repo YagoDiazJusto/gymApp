@@ -505,6 +505,7 @@ class GymAppController extends AbstractController
         $requestData = json_decode($request->getContent(), true);
 
         $session = $request->getSession();
+        dd($session);
 
         foreach ($requestData as $key => $value) {
             $session->set($key, $value);
