@@ -95,7 +95,6 @@ class GymAppController extends AbstractController
         $ultimoPeso = 0;
         $ultimasSeries = 0;
         $ultimasRepes = 0;
-        dump($ejercicios);
         foreach ($ejercicios as $ej) {
             if ($ej->getRutina()->getUsuario()->getId() == $user->getId()) {
                 $ultimoPeso = $ej->getPeso();
