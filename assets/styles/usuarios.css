@@ -12,7 +12,7 @@ html {
 .contenedora {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 6em;
+    padding-bottom: 6em!important;
 }
 
 .footer {
