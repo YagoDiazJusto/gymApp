@@ -170,6 +170,13 @@ h1{
     }
 }
 
+@media (max-width:840px){
+   .container>form div{
+    display: flex;
+    flex-direction: column;
+   }
+}
+
 @media (max-width:500px){
     .card{
         margin-top: 150px!important;

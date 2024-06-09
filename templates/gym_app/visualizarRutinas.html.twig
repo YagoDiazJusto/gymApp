@@ -197,7 +197,7 @@ date.css("display", "");
 		<h2 class="date text-center" style="color: white; border-bottom: solid 1px white; margin-bottom: 25px">{{ rutinas[num].fechaCreacion|date("d-m-Y") }}</h2>
 		<div class="row dias">
 			{% for d2 in d %}
-				<div class="col-6 col-lg-4 ">
+				<div class="col-12 col-md-6 col-lg-4 ">
 					<div class="card">
 						<h3 style="color:white;">{{ d2.ejercicio.nombreEjercicio }}</h3>
 						<p style="color:white;">{{ d2.ejercicio.descripcion }}</p>
